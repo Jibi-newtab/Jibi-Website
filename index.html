@@ -50,7 +50,7 @@
             background: rgba(255,255,255,0.92);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(157,160,175,0.2);
-            border-radius: 999px;
+            border-radius: 200px;
             padding: 10px 24px;
             display: flex;
             align-items: center;
@@ -85,12 +85,15 @@
             align-items: center;
             gap: 4px;
             list-style: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-mid);
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 500;
             padding: 8px 16px;
             border-radius: 999px;
@@ -221,6 +224,24 @@
 
         .btn-secondary:hover { transform: translateY(-2px); }
 
+        /* ===== HERO FLOATING EMOJIS ===== */
+        @keyframes hero-float {
+            0%   { transform: translateY(0px) rotate(0deg) scale(1); }
+            30%  { transform: translateY(-14px) rotate(3deg) scale(1.04); }
+            60%  { transform: translateY(-8px) rotate(-2deg) scale(1.02); }
+            100% { transform: translateY(0px) rotate(0deg) scale(1); }
+        }
+
+        .hero-emoji {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            animation: hero-float linear infinite;
+            filter: drop-shadow(0 8px 24px rgba(91,94,255,0.18));
+            line-height: 1;
+            user-select: none;
+        }
+
         /* Word Rotator */
         .sentence {
             display: flex;
@@ -296,11 +317,20 @@
         }
 
         .step-box {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
+            background: var(--bg-soft);
+            border-radius: 20px;
+            padding: 32px 24px;
             text-align: center;
             max-width: 100%;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+        }
+
+        .step-box:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: rgba(91,94,255,0.2);
         }
 
         .step-box h3 {
@@ -569,10 +599,11 @@
         }
 
         .testimonial-card {
-            background: var(--bg-soft);
+            background: white;
             border-radius: var(--radius);
             padding: 32px;
             border: 1px solid var(--border);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
@@ -661,7 +692,7 @@
             justify-content: space-between;
             align-items: center;
             color: var(--text);
-            background: var(--bg-soft);
+            background: white;
             transition: all 0.2s;
         }
 
@@ -852,8 +883,7 @@
         .footer-logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), #8B8FFF);
-            border-radius: 12px;
+                border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -899,15 +929,39 @@
             border-top: 1px solid rgba(255,255,255,0.08);
             padding-top: 24px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            justify-content: center;
         }
 
         .footer-copy {
             font-size: 13px;
             color: rgba(255,255,255,0.3);
+            text-align: center;
+        }
+
+        /* CTA Text Box */
+        .cta-text-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255,255,255,0.25);
+            border-radius: 28px;
+            padding: 36px 56px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+            animation: box-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes box-glow {
+            0%, 100% {
+                box-shadow: 0 0 24px rgba(255,255,255,0.15), 0 0 48px rgba(91,94,255,0.25);
+                border-color: rgba(255,255,255,0.25);
+            }
+            50% {
+                box-shadow: 0 0 48px rgba(255,255,255,0.35), 0 0 96px rgba(91,94,255,0.45);
+                border-color: rgba(255,255,255,0.55);
+            }
         }
 
         /* Mobile Menu */
@@ -928,6 +982,7 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            nav > .nav-cta { display: none; }
             .hamburger { display: flex; }
             nav { padding: 10px 16px; }
         }
@@ -948,6 +1003,76 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ===== ALTERNATING SECTION PATTERN ===== */
+        .section-wrap {
+            border-radius: 50px;
+            margin: 40px 24px;
+            padding: 40px 24px;
+        }
+        .section-wrap.outer-gray { background: #F3F4F6; }
+        .section-wrap.outer-white { background: #FFFFFF; }
+
+        .section-inner {
+            border-radius: 24px;
+            padding: 70px 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-inner.inner-white { background: #FFFFFF; }
+        .section-inner.inner-gray { background: #F3F4F6; }
+
+        @media (max-width: 768px) {
+            .section-wrap { border-radius: 32px; margin: 24px 12px; padding: 24px 12px; }
+            .section-inner { padding: 40px 20px; border-radius: 16px; }
+        }
+
+        /* ===== BEFORE/AFTER COMPARE ===== */
+        .compare-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            direction: ltr;
+        }
+        .compare-box { flex: 1; direction: rtl; }
+        .compare-label {
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 6px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 0 auto 12px;
+        }
+        .before-label { background: #E5E7EB; color: #6B7280; }
+        .after-label { background: var(--primary-soft); color: var(--primary); }
+        .compare-arrow {
+            font-size: 40px;
+            color: var(--primary);
+            flex-shrink: 0;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .compare-screen {
+            aspect-ratio: 16/10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            gap: 12px;
+        }
+        .before-screen { background: #ffffff; }
+        .after-screen {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .compare-container { flex-direction: column; gap: 20px; }
+            .compare-arrow { transform: rotate(90deg); }
+        }
     </style>
 </head>
 <body>
@@ -962,17 +1087,19 @@
     </a>
 
     <ul class="nav-links">
+        <li><a href="#features">بلاگ</a></li>
         <li><a href="#features">امکانات</a></li>
         <li><a href="#tools">ابزارها</a></li>
         <li><a href="#testimonials">نظرات</a></li>
         <li><a href="#faq">سوالات</a></li>
-        <li><a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
-            </svg>
-            نصب روی کروم
-        </a></li>
     </ul>
+
+    <a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
+        </svg>
+        نصب روی کروم
+    </a>
 
     <div class="hamburger">
         <span></span>
@@ -983,9 +1110,21 @@
 
 <!-- HERO SECTION -->
 <section class="hero">
-    <h1 style="font-size: clamp(36px, 3vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
+
+    <!-- Floating emojis - right side -->
+    <span class="hero-emoji" style="font-size:64px; top:18%; right:6%; animation-duration:9s; animation-delay:0s; opacity:0.82;">🔐</span>
+    <span class="hero-emoji" style="font-size:48px; top:47%; right:3%; animation-duration:12s; animation-delay:2s; opacity:0.65;">⚡</span>
+    <span class="hero-emoji" style="font-size:56px; top:60%; right:14%; animation-duration:10s; animation-delay:1s; opacity:0.75;">💼</span>
+
+    <!-- Floating emojis - left side -->
+    <span class="hero-emoji" style="font-size:60px; top:22%; left:5%; animation-duration:11s; animation-delay:1.5s; opacity:0.78;">🚀</span>
+    <span class="hero-emoji" style="font-size:52px; top:50%; left:3%; animation-duration:13s; animation-delay:0.5s; opacity:0.7;">⭐</span>
+    <span class="hero-emoji" style="font-size:44px; top:72%; left:14%; animation-duration:9s; animation-delay:4s; opacity:0.6;">🎁</span>
+    <span class="hero-emoji" style="font-size:38px; top:36%; left:15%; animation-duration:15s; animation-delay:2.5s; opacity:0.45;">🌿</span>
+
+    <h1 style="font-size: clamp(36px, 2.6vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
         <span style="color: var(--primary);">جیبی</span>، تب
-        <div class="rotating-wrapper" style="width: 300px; height: 380px;">
+        <div class="rotating-wrapper" style="width: 300px; height: 400px;">
             <span class="word">شخصی 🌿</span>
             <span class="word">کارآمد 💼</span>
             <span class="word">ایمن 🔒</span>
@@ -996,7 +1135,7 @@
         برای تو
     </h1>
 
-    <p>جيبي تب جدید مرورگرت رو تبدیل می‌کنه به یه داشبورد شخصی کامل با ابزارهای کاربردی روزمره.</p>
+    <p>جيبي تب جدید مرورگرت رو تبدیل می‌کنه به یه داشبورد شخصی کامل.</p>
 
     <div class="hero-buttons">
         <a href="https://chrome.google.com/webstore" class="btn-primary" target="_blank">
@@ -1010,9 +1149,74 @@
     </div>
 </section>
 
+<!-- BEFORE/AFTER SECTION -->
+<section class="section-wrap outer-white">
+    <div class="section-inner inner-gray">
+        <div class="section-header anim">
+            <span class="detail-tag">✨ تبدیل با یه کلیک</span>
+            <h2 class="section-title">از این… به اون</h2>
+            <p class="section-subtitle">تب جدیدت هنوز یه صفحه خالیه؟ با جیبی فرق رو ببین</p>
+        </div>
+
+        <div class="compare-container anim">
+            <div class="compare-box">
+                <div style="text-align:center;">
+                    <span class="compare-label before-label">قبل از جیبی</span>
+                </div>
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="compare-screen before-screen">
+                        <div style="font-size:36px; font-weight:900; background:linear-gradient(90deg,#4285F4,#EA4335,#FBBC05,#34A853); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Google</div>
+                        <div style="width:100%; max-width:260px; background:#f1f3f4; border-radius:24px; padding:10px 18px; display:flex; align-items:center; gap:8px; color:#9aa0a6; font-size:13px;">
+                            <span>🔍</span> جستجو در Google
+                        </div>
+                        <div style="display:flex; gap:12px; margin-top:4px;">
+                            <div style="width:72px; height:72px; background:#f1f3f4; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:10px; color:#9aa0a6;"><span style="font-size:22px;">📌</span>میانبر</div>
+                            <div style="width:72px; height:72px; background:#f1f3f4; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:10px; color:#9aa0a6;"><span style="font-size:22px;">📌</span>میانبر</div>
+                            <div style="width:72px; height:72px; background:#f1f3f4; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:10px; color:#9aa0a6;"><span style="font-size:22px;">📌</span>میانبر</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="compare-arrow">→</div>
+
+            <div class="compare-box">
+                <div style="text-align:center;">
+                    <span class="compare-label after-label">با جیبی ✨</span>
+                </div>
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="compare-screen after-screen">
+                        <div style="color:white; font-size:40px; font-weight:900; letter-spacing:-1px;">۱۴:۳۰</div>
+                        <div style="color:rgba(255,255,255,0.55); font-size:13px;">دوشنبه، ۴ اسفند ۱۴۰۳</div>
+                        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:4px;">
+                            <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:6px 12px; color:white; font-size:12px;">☀️ تهران ۱۵°</div>
+                            <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:6px 12px; color:white; font-size:12px;">💰 دلار ۵۸,۰۰۰</div>
+                            <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:6px 12px; color:white; font-size:12px;">✅ ۳ کار امروز</div>
+                        </div>
+                        <div style="display:flex; gap:8px; margin-top:4px;">
+                            <div style="background:rgba(91,94,255,0.45); border-radius:10px; padding:6px 14px; color:white; font-size:12px;">🔖 بوکمارک‌ها</div>
+                            <div style="background:rgba(91,94,255,0.45); border-radius:10px; padding:6px 14px; color:white; font-size:12px;">🤖 هوش مصنوعی</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- STEPS SECTION (Mach Style) -->
-<section class="steps-section">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-[20px] p-10">
+<section class="section-wrap outer-gray">
+    <div class="section-inner inner-white">
         <h3 class="text-2xl sm:text-4xl font-bold text-center mb-12 text-gray-800">3 قدم تا تب شخصی و شروع کار با جیبی</h3>
         <div class="steps-container">
             <div class="step-box anim">
@@ -1035,15 +1239,15 @@
 </section>
 
 <!-- WHY SECTION (Mach Style) -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="section-wrap outer-white">
+    <div class="section-inner inner-gray">
         <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
             چرا <span class="text-blue-700"> جیبی</span>؟
         </h3>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Card 1 -->
-            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
                 <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">😎</div>
                 <h4 class="text-2xl font-semibold mb-2 text-blue-600">تجربه آرام و مینیمال  </h4>
                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
@@ -1052,7 +1256,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
                 <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">👀</div>
                 <h4 class="text-2xl font-semibold mb-2 text-blue-600">دسترسی سریع و هوشمند </h4>
                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
@@ -1061,7 +1265,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
                 <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🔥</div>
                 <h4 class="text-2xl font-semibold mb-2 text-blue-600">ساده  و رایگان</h4>
                 <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
@@ -1073,8 +1277,8 @@
 </section>
 
 <!-- DETAILED VIEW SECTION -->
-<section class="detail-section" id="features">
-    <div class="detail-container">
+<section class="section-wrap outer-gray" id="features">
+    <div class="section-inner inner-white">
         <div class="section-header anim">
             <span class="detail-tag">نگاهی دقیق‌تر</span>
             <h2 class="section-title">بیا ببینیم چطور جيبي کارت رو راحت‌تر میکنه</h2>
@@ -1125,11 +1329,60 @@
                 </div>
             </div>
         </div>
+
+        <div class="detail-row">
+            <div class="detail-text anim">
+                <span class="detail-tag">ابزارها و ویجت‌ها</span>
+                <h2>همه ابزارات،<br>یه جا</h2>
+                <p>لیست کارها، آب‌وهوا، قیمت ارز و کریپتو، ابزارهای AI، تقویم فارسی، موزیک پلیر — بدون نیاز به باز کردن تب جدید.</p>
+                <div class="feature-list">
+                    <span class="feature-chip">تقویم شمسی</span>
+                    <span class="feature-chip">موزیک پلیر</span>
+                    <span class="feature-chip">بوکمارک هوشمند</span>
+                    <span class="feature-chip">سرویس‌های Google</span>
+                </div>
+            </div>
+            <div class="detail-visual anim">
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">🛠️ ابزارها و ویجت‌ها</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-row reverse">
+            <div class="detail-text anim">
+                <span class="detail-tag">بدون اشتراک</span>
+                <h2>بدون اشتراک،<br>پر از امکانات</h2>
+                <p>دنبال دکمه خرید اشتراک نگرد، چون اینجا همه‌چی بازه! تمام قابلیت‌هایی که جای دیگه باید براش اشتراک بخری، اینجا حق طبیعی توئه.</p>
+                <div class="feature-list">
+                    <span class="feature-chip">بک‌گراند شخصی</span>
+                    <span class="feature-chip">بک‌گراند ویدیویی</span>
+                    <span class="feature-chip">بوکمارک بی‌نهایت</span>
+                    <span class="feature-chip">تم‌های رنگی</span>
+                </div>
+            </div>
+            <div class="detail-visual anim">
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">🎁 رایگان و کامل</div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- TOOLS SECTION -->
-<section class="tools-section" id="tools">
+<section class="section-wrap outer-white" id="tools">
+    <div class="section-inner inner-gray">
     <div class="section-header anim">
         <span class="detail-tag">ابزارها</span>
         <h2 class="section-title">ابزارهای روزمره، دم دستت</h2>
@@ -1148,10 +1401,12 @@
         <div class="tool-card anim"><span class="tool-icon">📅</span><h4>تقویم حرفه‌ای</h4><p>تقویم شمسی و میلادی</p></div>
         <div class="tool-card anim"><span class="tool-icon">🤖</span><h4>هوش مصنوعی</h4><p>دسترسی مستقیم به AI</p></div>
     </div>
+    </div>
 </section>
 
 <!-- TESTIMONIALS SECTION -->
-<section class="testimonials-section" id="testimonials">
+<section class="section-wrap outer-gray" id="testimonials">
+    <div class="section-inner inner-white">
     <div class="section-header anim">
         <span class="detail-tag">نظر کاربران</span>
         <h2 class="section-title">اونایی که جیبی رو امتحان کردن</h2>
@@ -1183,10 +1438,12 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- FAQ SECTION -->
-<section class="faq-section" id="faq">
+<section class="section-wrap outer-white" id="faq">
+    <div class="section-inner inner-gray">
     <div class="section-header anim">
         <span class="detail-tag">سوالات متداول</span>
         <h2 class="section-title">یه سوال داری؟</h2>
@@ -1240,6 +1497,7 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- CTA SECTION -->
@@ -1257,7 +1515,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
             </svg>
-            نصب دستیار
+            نصب جیبی
         </a>
     </section>
 </div>
@@ -1276,7 +1534,9 @@
         <div class="footer-top">
             <div>
                 <div class="footer-brand-logo">
-                    <div class="footer-logo-icon">ج</div>
+                    <div class="footer-logo-icon">
+                        <img src="icon.png" alt="">
+                    </div>
                     <span class="footer-brand-name">جيبي</span>
                 </div>
                 <p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان، متن‌باز و محافظ حریم خصوصی.</p>
@@ -1306,7 +1566,6 @@
 
         <div class="footer-bottom">
             <span class="footer-copy">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
-            <span class="footer-copy">© ۱۴۰۳ جيبي</span>
         </div>
     </div>
 </footer>
