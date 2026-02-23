@@ -1078,10 +1078,52 @@
         @media (max-width: 768px) {
             .hero-emoji { display: none; }
             .hero { padding: 100px 20px 60px; }
-            .rotating-wrapper { width: 160px !important; height: 200px !important; }
+            .rotating-wrapper { width: 220px !important; height: 220px !important; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; justify-content: center; }
+            section.hero h1 { font-size: 28px !important; gap: 6px !important; }
         }
+
+        @media (max-width: 400px) {
+            .rotating-wrapper { width: 180px !important; height: 200px !important; }
+            section.hero h1 { font-size: 24px !important; }
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 76px;
+            left: 16px;
+            right: 16px;
+            z-index: 999;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157,160,175,0.2);
+            border-radius: 24px;
+            padding: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            flex-direction: column;
+            gap: 4px;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+        .mobile-menu ul a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-mid);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        .mobile-menu ul a:hover { background: rgba(91,94,255,0.08); color: var(--primary); }
+        .mobile-menu .nav-cta { margin-top: 8px; justify-content: center; }
+        .hamburger span { transition: all 0.25s; transform-origin: center; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
     </style>
 </head>
 <body>
@@ -1110,12 +1152,29 @@
         نصب روی کروم
     </a>
 
-    <div class="hamburger">
+    <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="#features">بلاگ</a></li>
+        <li><a href="#features">امکانات</a></li>
+        <li><a href="#tools">ابزارها</a></li>
+        <li><a href="#testimonials">نظرات</a></li>
+        <li><a href="#faq">سوالات</a></li>
+    </ul>
+    <a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
+        </svg>
+        نصب روی کروم
+    </a>
+</div>
 
 <!-- HERO SECTION -->
 <section class="hero">
@@ -1580,6 +1639,22 @@
 </footer>
 
 <script>
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('open');
+        });
+    });
+
     // Word Rotator
     const words = document.querySelectorAll('.rotating-wrapper .word');
     let index = 0;
