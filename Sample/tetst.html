@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جیب‌پشتی - تب جدید هوشمند</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4D6BFE;
+            --secondary: #FF429D;
+            --purple: #764ba2;
+            --cyan: #06b6d4;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4D6BFE, #FF429D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: blob 20s infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(45deg, #4D6BFE, #764ba2);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(45deg, #FF429D, #f093fb);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: 5s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-50px, 100px) scale(0.9); }
+            75% { transform: translate(50px, 50px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1100px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(77, 107, 254, 0.1);
+            border: 1px solid rgba(77, 107, 254, 0.3);
+            border-radius: 50px;
+            color: #4D6BFE;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #a8b3ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4D6BFE 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 10px 40px rgba(77, 107, 254, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(77, 107, 254, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .preview-window {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot:nth-child(1) { background: #ff5f56; }
+        .dot:nth-child(2) { background: #ffbd2e; }
+        .dot:nth-child(3) { background: #27c93f; }
+
+        .preview-content {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4D6BFE, #FF429D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        .features-section {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(77, 107, 254, 0.1), rgba(255, 66, 157, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-item:hover::before {
+            opacity: 1;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(77, 107, 254, 0.3);
+            box-shadow: 0 20px 60px rgba(77, 107, 254, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4D6BFE, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .deep-dive-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(77, 107, 254, 0.03) 100%);
+        }
+
+        .deep-dive-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .deep-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .deep-feature:nth-child(even) {
+            direction: ltr;
+        }
+
+        .deep-feature:nth-child(even) .deep-content {
+            direction: rtl;
+        }
+
+        .deep-content h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .deep-content p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .deep-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .deep-list li {
+            padding: 0.8rem 0;
+            padding-right: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+        }
+
+        .deep-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #4D6BFE;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .deep-visual {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .deep-visual-content {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .tools-section {
+            padding: 8rem 2rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(77, 107, 254, 0.3);
+            box-shadow: 0 15px 40px rgba(77, 107, 254, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tool-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        .testimonials-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, rgba(77, 107, 254, 0.03) 0%, transparent 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4D6BFE, #FF429D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .pricing-section {
+            padding: 8rem 2rem;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4D6BFE, #FF429D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .price-desc {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: right;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            padding-right: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #4D6BFE;
+            font-weight: bold;
+        }
+
+        .faq-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(77, 107, 254, 0.03) 100%);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(77, 107, 254, 0.3);
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .final-cta {
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4D6BFE, #FF429D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .deep-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid,
+            .tools-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-bar {
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">جیب‌پشتی</div>
+            <div class="nav-links">
+                <a href="#features">امکانات</a>
+                <a href="#tools">ابزارها</a>
+                <a href="#faq">سوالات</a>
+                <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">دانلود</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        
+        <div class="hero-content">
+            <div class="badge">🚀 افزونه رایگان برای کروم و فایرفاکس</div>
+            
+            <h1>جیب‌پشتی</h1>
+            
+            <p class="subtitle">
+                تب جدیدت رو تبدیل کن به یه فضای کاری شخصی، با ابزارهای هوشمند، تم‌های زیبا، و تجربه‌ای که واقعا به درد میخوره
+            </p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">
+                    <span>دانلود رایگان</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 12h16m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <span>بیشتر بدون</span>
+                </a>
+            </div>
+
+            <div class="preview-window">
+                <div class="browser-bar">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="preview-content">
+                    نمایش زنده محیط کار
+                </div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">۵۰+</div>
+                    <div class="stat-label">قابلیت متنوع</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">۱۲</div>
+                    <div class="stat-label">تم آماده</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">۱۰۰٪</div>
+                    <div class="stat-label">رایگان و آزاد</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">۲</div>
+                    <div class="stat-label">زبان کامل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="section-header">
+            <h2 class="section-title">امکانات اصلی</h2>
+            <p class="section-desc">همه چیزی که برای یه تب جدید حرفه‌ای لازمه</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h3>شخصی‌سازی کامل</h3>
+                <p>بیش از ۱۲ تم پیش‌ساخته شامل آبی، بنفش، صورتی، قرمز، سبز و... یا با Color Picker رنگ دلخواهت رو انتخاب کن. والپیپر شخصی آپلود کن یا از ما یه تصویر تصادفی زیبا دریافت کن</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <h3>جستجوی پیشرفته</h3>
+                <p>جستجو همزمان در گوگل، یوتیوب و Google Images با تغییر سریع موتور. پیشنهادهای خودکار در حین تایپ و جستجوی صوتی با کیفیت بالا</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">☁️</div>
+                <h3>آب و هوای زنده</h3>
+                <p>اطلاعات دقیق و لحظه‌ای آب و هوای شهرت با دما، وضعیت آسمان و آیکون‌های زیبا. انتخاب شهر از لیست کامل استان‌ها و شهرهای ایران</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🕐</div>
+                <h3>ساعت دوگانه</h3>
+                <p>ساعت آنالوگ کلاسیک یا دیجیتال مدرن با فرمت ۱۲ یا ۲۴ ساعته. نمایش تاریخ شمسی و میلادی همزمان با طراحی زیبا و خوانا</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">✅</div>
+                <h3>مدیریت کارها</h3>
+                <p>تودولیست قدرتمند با امکان افزودن سریع، تیک زدن و حذف کارها. همه چی توی مرورگرت ذخیره میشه و همیشه در دسترسی</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🔖</div>
+                <h3>بوکمارک هوشمند</h3>
+                <p>ساخت شورتکات اختصاصی با نام و آدرس دلخواه. جستجو توی بوکمارک‌ها، ویرایش و مدیریت آسان. صفحه ابزار با دسته‌بندی سایت‌های محبوب، ابزارهای روزمره و سرگرمی</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🤖</div>
+                <h3>هاب هوش مصنوعی</h3>
+                <p>دسترسی یک‌کلیکی به ChatGPT، Google Gemini، Microsoft Copilot، DeepSeek، Perplexity و Grok. همه AI ها در یه جا</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🎵</div>
+                <h3>صداهای طبیعت</h3>
+                <p>۹ صدای آرامش‌بخش: باد، اقیانوس، باران، آتش، رودخانه، جنگل، پیانو، موزیک و ویولن. میکس کن و فضای کاری آرومی برای خودت بساز</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">📅</div>
+                <h3>تقویم جامع</h3>
+                <p>تقویم شمسی کامل با نمایش هم‌زمان تاریخ میلادی. افزودن رویداد، یادآوری مناسبت‌ها و تبدیل تاریخ شمسی به میلادی و بالعکس</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🌙</div>
+                <h3>حالت شب پیشرفته</h3>
+                <p>تم Dark Mode حرفه‌ای برای کار شبانه. تنظیم شفافیت ویجت‌ها برای خوانایی بهتر روی هر والپیپری</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🌐</div>
+                <h3>دو زبانه کامل</h3>
+                <p>پشتیبانی کامل از فارسی و انگلیسی. تغییر زبان با یه کلیک. همه المان‌ها و متن‌ها به درستی ترجمه شدن</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">💾</div>
+                <h3>بکآپ و بازیابی</h3>
+                <p>پشتیبان‌گیری از همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌ها. بازگردونی با یه کلیک. دیگه نگران از دست دادن اطلاعاتت نباش</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="deep-dive-section">
+        <div class="section-header">
+            <h2 class="section-title">نگاهی دقیق‌تر</h2>
+            <p class="section-desc">بیا ببینیم چطور جیب‌پشتی کارت رو راحت‌تر میکنه</p>
+        </div>
+
+        <div class="deep-dive-container">
+            <div class="deep-feature">
+                <div class="deep-content">
+                    <h3>جستجوی هوشمند با پیشنهادات زنده</h3>
+                    <p>دیگه نیازی نیست هر بار صفحه گوگل رو باز کنی. مستقیم از تب جدید جستجو کن و نتیجه بگیر.</p>
+                    <ul class="deep-list">
+                        <li>سوییچ سریع بین گوگل، یوتیوب و جستجوی تصویر</li>
+                        <li>پیشنهادهای لحظه‌ای در حین تایپ</li>
+                        <li>جستجوی صوتی با تشخیص دقیق</li>
+                        <li>ذخیره تاریخچه جستجوهای اخیر</li>
+                        <li>میانبرهای کیبورد برای دسترسی سریع</li>
+                    </ul>
+                </div>
+                <div class="deep-visual">
+                    <div class="deep-visual-content">نمایش جستجوی هوشمند</div>
+                </div>
+            </div>
+
+            <div class="deep-feature">
+                <div class="deep-content">
+                    <h3>بوکمارک‌های زیبا و سازمان‌یافته</h3>
+                    <p>سایت‌های محبوبت رو با طراحی زیبا و دسترسی فوری نگه دار. دیگه توی لیست طولانی بوکمارک گم نشو.</p>
+                    <ul class="deep-list">
+                        <li>کارت‌های بوکمارک با آیکون و نام اختصاصی</li>
+                        <li>صفحه ابزار با دسته‌بندی: سایت‌های محبوب، ابزارها، سرگرمی، سوشال مدیا</li>
+                        <li>جستجوی سریع توی بوکمارک‌های ذخیره شده</li>
+                        <li>ویرایش و حذف آسان</li>
+                        <li>افزودن بوکمارک با پیشنهادات آیکون</li>
+                    </ul>
+                </div>
+                <div class="deep-visual">
+                    <div class="deep-visual-content">نمایش گرید بوکمارک‌ها</div>
+                </div>
+            </div>
+
+            <div class="deep-feature">
+                <div class="deep-content">
+                    <h3>صداهای طبیعت برای فوکوس بهتر</h3>
+                    <p>محیط کاری آرومی برای خودت بساز. با ترکیب صداهای مختلف، فضای دلخواهت رو خلق کن.</p>
+                    <ul class="deep-list">
+                        <li>۹ صدای با کیفیت: باد، اقیانوس، باران، آتش، رودخانه، جنگل، پیانو، موزیک و ویولن</li>
+                        <li>تنظیم ولوم جداگانه برای هر صدا</li>
+                        <li>پخش همزمان چند صدا برای میکس دلخواه</li>
+                        <li>ذخیره ترکیب صداهای مورد علاقه</li>
+                        <li>کنترل سریع از نوار ابزار</li>
+                    </ul>
+                </div>
+                <div class="deep-visual">
+                    <div class="deep-visual-content">کنترلر موزیک و صداها</div>
+                </div>
+            </div>
+
+            <div class="deep-feature">
+                <div class="deep-content">
+                    <h3>تقویم شمسی با رویدادها</h3>
+                    <p>تقویمی که واقعا کاربردی و فارسیه. یادآوری مناسبت‌ها، تبدیل تاریخ و مدیریت رویدادها.</p>
+                    <ul class="deep-list">
+                        <li>نمایش تقویم شمسی با معادل میلادی</li>
+                        <li>افزودن رویداد با عنوان و توضیحات</li>
+                        <li>تبدیل سریع تاریخ شمسی به میلادی</li>
+                        <li>رفتن به تاریخ مشخص</li>
+                        <li>نمایش رویدادهای امروز</li>
+                    </ul>
+                </div>
+                <div class="deep-visual">
+                    <div class="deep-visual-content">نمایش تقویم تعاملی</div>
+                </div>
+            </div>
+
+            <div class="deep-feature">
+                <div class="deep-content">
+                    <h3>تم‌سازی بی‌نهایت</h3>
+                    <p>از تم‌های آماده استفاده کن یا یه تم کاملا شخصی برای خودت بساز. هر روز یه حال و هوای جدید.</p>
+                    <ul class="deep-list">
+                        <li>۱۲ تم پیش‌ساخته: آبی، بنفش، صورتی، قرمز، زرد، سبز، فیروزه‌ای، نارنجی، قهوه‌ای، نقره‌ای، هلویی و تاریک</li>
+                        <li>Color Picker برای انتخاب هر رنگی</li>
+                        <li>آپلود والپیپر شخصی</li>
+                        <li>دریافت تصویر رندوم زیبا</li>
+                        <li>تنظیم شفافیت المان‌ها</li>
+                        <li>حالت Dark Mode پیشرفته</li>
+                    </ul>
+                </div>
+                <div class="deep-visual">
+                    <div class="deep-visual-content">انتخاب تم و رنگ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="tools-section">
+        <div class="section-header">
+            <h2 class="section-title">صفحه ابزارها</h2>
+            <p class="section-desc">دسترسی سریع به سایت‌های محبوب و ابزارهای روزمره</p>
+        </div>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">⚡</div>
+                <h4>سایت‌های محبوب</h4>
+                <p>یوتیوب، ویکی‌پدیا، والکس، طلا و سکه، باما، دیوار، ورزش۳، باسلام، دیجی‌کالا و زومیت</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🛠️</div>
+                <h4>ابزارهای کاربردی</h4>
+                <p>مترجم گوگل، جیمیل، رهگیری پست، تست سرعت، Canva، تمرین تنفس، مایندمپ، تبدیل فایل، پرداخت قبض و ترلو</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🌐</div>
+                <h4>شبکه‌های اجتماعی</h4>
+                <p>وب ایتا، بله، تلگرام، واتساپ و اینستاگرام</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎮</div>
+                <h4>سرگرمی</h4>
+                <p>فیلیمو، آپارات، موزیک، کتاب، پادکست و بازی‌های آنلاین</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎲</div>
+                <h4>بازی</h4>
+                <p>شطرنج، سودوکو، 2048، کلمه‌بازی و بازی‌های سرگرم‌کننده</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">💰</div>
+                <h4>قیمت لحظه‌ای</h4>
+                <p>نرخ طلا، ارز، سکه و ارزهای دیجیتال با ویجت مخصوص از tgju</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📝</div>
+                <h4>تودو پیشرفته</h4>
+                <p>لیست کارها با تایمر پومودورو ۲۵ دقیقه‌ای و حالت فوکوس</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎯</div>
+                <h4>اپلیکیشن‌های گوگل</h4>
+                <p>دسترسی سریع به Account، Search، YouTube، Gmail، YouTube Music، Maps، Drive، Photos، Translate، Calendar و Meet</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2 class="section-title">نظر کاربرها</h2>
+            <p class="section-desc">ببین دیگران چی میگن</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"واقعا عالیه! دیگه نیازی به افزونه‌های مختلف ندارم. همه چی تو یه جا هست و خیلی زیبا طراحی شده."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div class="author-info">
+                        <h5>محمد رضایی</h5>
+                        <p>توسعه‌دهنده فرانت‌اند</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"صداهای طبیعت عالیه برای کار کردن. معمولا باران رو با موزیک پیانو میکس میکنم. فوکوسم خیلی بهتر شده."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">س</div>
+                    <div class="author-info">
+                        <h5>سارا احمدی</h5>
+                        <p>طراح گرافیک</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"تقویم شمسیش خیلی کاربردیه. دیگه نیازی به سایت‌های تبدیل تاریخ ندارم. همه چی اینجاست."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ع</div>
+                    <div class="author-info">
+                        <h5>علی محمدی</h5>
+                        <p>مدیر پروژه</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="section-header">
+            <h2 class="section-title">قیمت‌گذاری</h2>
+            <p class="section-desc">خب... این بخش ساده‌ترین بخشه!</p>
+        </div>
+
+        <div class="pricing-card">
+            <div class="price">۰ تومان</div>
+            <p class="price-desc">برای همیشه. بدون هیچ هزینه پنهانی</p>
+            
+            <ul class="features-list">
+                <li>دسترسی به همه امکانات</li>
+                <li>بدون محدودیت</li>
+                <li>بدون تبلیغات</li>
+                <li>آپدیت‌های رایگان</li>
+                <li>پشتیبانی کامل</li>
+                <li>متن‌باز و شفاف</li>
+                <li>بدون جمع‌آوری اطلاعات</li>
+                <li>کاملا امن و محلی</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                همین الان دانلود کن
+            </a>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="section-header">
+            <h2 class="section-title">سوالات متداول</h2>
+            <p class="section-desc">احتمالا یکی از این سوالا توی ذهنته</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    جیب‌پشتی چیه و چیکار میکنه؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    جیب‌پشتی یه افزونه مرورگره که صفحه تب جدیدت رو تبدیل میکنه به یه فضای کاری هوشمند. با امکاناتی مثل جستجوی پیشرفته، آب و هوا، تودولیست، بوکمارک، تقویم شمسی، صداهای طبیعت و خیلی چیزهای دیگه.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    روی چه مرورگرهایی کار میکنه؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    فعلا روی گوگل کروم و مرورگرهای مبتنی بر Chromium مثل Edge، Brave و Opera کار میکنه. نسخه فایرفاکس هم به زودی منتشر میشه.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    واقعا رایگانه؟ پولی نمیشه؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    آره، کاملا رایگان و برای همیشه رایگان میمونه. هیچ نسخه پولی یا پریمیومی نداریم. همه امکانات برای همه کاملا آزاده.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    اطلاعاتم امنه؟ چیزی جمع‌آوری میشه؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    نه، هیچ اطلاعاتی جمع‌آوری نمیشه. همه چیز محلیه و توی مرورگر خودت ذخیره میشه. ما دسترسی به هیچ چیزی نداریم و نمیخوایم هم داشته باشیم. حریم خصوصیت برامون مهمه.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    چطور میتونم تنظیماتم رو بکاپ بگیرم؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    توی منوی تنظیمات، بخش Backup & Restore رو داریم. میتونی با یه کلیک همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌هات رو به صورت یه فایل JSON ذخیره کنی و بعدا بازگردونی.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    میتونم تم خودم رو بسازم؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    حتما! علاوه بر ۱۲ تم آماده، میتونی با Color Picker هر رنگی رو انتخاب کنی. همچنین میتونی والپیپر دلخواهت رو آپلود کنی یا از ما یه تصویر رندوم زیبا دریافت کنی.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    صداهای طبیعت چطوری کار میکنن؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    ۹ صدای با کیفیت داریم که میتونی همزمان چندتاشون رو پخش کنی. هر کدوم ولوم جداگانه دارن. مثلا میتونی صدای باران رو با موزیک پیانو میکس کنی و فضای آرومی برای کار کردن بسازی.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    متن‌باز (Open Source) هست؟
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    بله، کد کاملا باز و شفافه. هر کسی میتونه کدها رو ببینه، بررسی کنه و حتی مشارکت کنه. این یه پروژه جامعه‌محوره.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>آماده‌ای تجربه‌ای بهتر داشته باشی؟</h2>
+        <p>همین الان جیب‌پشتی رو نصب کن و هر بار که تب جدید باز میکنی، لذت ببر</p>
+        <div class="cta-group">
+            <a href="#" class="btn btn-primary">
+                <span>دانلود رایگان</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 12h16m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <a href="#features" class="btn btn-secondary">
+                <span>یه دور دیگه ببین</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>جیب‌پشتی</h3>
+                <p>افزونه‌ای که تب جدیدت رو به یه فضای کاری شخصی تبدیل میکنه. رایگان، متن‌باز و برای همه.</p>
+            </div>
+            <div class="footer-links">
+                <h4>لینک‌ها</h4>
+                <a href="#features">امکانات</a>
+                <a href="#tools">ابزارها</a>
+                <a href="#faq">سوالات</a>
+                <a href="#">دانلود</a>
+            </div>
+            <div class="footer-links">
+                <h4>پشتیبانی</h4>
+                <a href="#">راهنما</a>
+                <a href="#">گزارش باگ</a>
+                <a href="#">درخواست قابلیت</a>
+                <a href="#">تماس با ما</a>
+            </div>
+            <div class="footer-links">
+                <h4>جامعه</h4>
+                <a href="#">GitHub</a>
+                <a href="#">تلگرام</a>
+                <a href="#">توییتر</a>
+                <a href="#">اینستاگرام</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>ساخته شده با ❤️ برای کسایی که می‌خوان تجربه بهتری داشته باشن</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">© 2024 جیب‌پشتی. همه حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

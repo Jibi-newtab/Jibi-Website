@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دستیار</title>
+  <meta name="description" content="دستیار یک افزونه فارسی‌ست که به شما کمک می‌کند زندگی دیجیتال راحت‌تر و فعال‌تری داشته باشید."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-primary: #276EF6;
+      --blue-light: #6B9EFF;
+      --blue-dark: #1a4db3;
+      --pink: #FF417D;
+      --dark: #161417;
+      --gray-100: #f5f5f7;
+      --gray-200: #e8e8ed;
+      --gray-500: #6e6e73;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      max-width: 1200px;
+      margin: 16px auto;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(157,160,175,0.2);
+      border-radius: 999px;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #1d1d1f;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #276EF6;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo span {
+      font-size: 20px;
+      font-weight: 800;
+      color: #276EF6;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1d1d1f;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+
+    .nav-links a:hover { background: rgba(0,0,0,0.05); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(180deg, #6B9EFF 0%, #276EF6 100%);
+      color: white !important;
+      padding: 10px 20px !important;
+      border-radius: 999px !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      text-decoration: none;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.9; background: linear-gradient(180deg, #6B9EFF 0%, #276EF6 100%) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(39,110,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero h1 .logo-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #276EF6;
+    }
+
+    .hero p {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--gray-500);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(180deg, #76A5FF 0%, #276EF6 100%);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(39,110,246,0.3);
+      font-family: 'Vazirmatn', sans-serif;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(39,110,246,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(180deg, #f5f5f7 0%, #e5e5ea 100%);
+      color: #1d1d1f;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    /* ─── PHONE INPUT ─── */
+    .phone-section {
+      max-width: 480px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+
+    .phone-section p {
+      text-align: center;
+      color: var(--gray-500);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .phone-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .phone-input-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 999px;
+      padding: 10px 16px;
+    }
+
+    .phone-input-wrap input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 15px;
+      color: var(--gray-500);
+      background: transparent;
+      direction: rtl;
+    }
+
+    .phone-submit {
+      background: #276EF6;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .phone-submit:hover { opacity: 0.85; }
+
+    /* ─── PREVIEW IMAGE PLACEHOLDER ─── */
+    .preview-wrap {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .preview-desktop {
+      width: 100%;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+      border-radius: 20px;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(39,110,246,0.15);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.12);
+      font-size: 18px;
+      color: #276EF6;
+      font-weight: 600;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .preview-mockup {
+      width: 90%;
+      height: 85%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      overflow: hidden;
+    }
+
+    .mockup-sidebar {
+      width: 200px;
+      background: #f5f5f7;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-left: 1px solid #e8e8ed;
+    }
+
+    .mockup-sidebar-item {
+      height: 32px;
+      border-radius: 8px;
+      background: #e8e8ed;
+    }
+
+    .mockup-sidebar-item.active { background: linear-gradient(135deg, #276EF6, #6B9EFF); }
+
+    .mockup-main {
+      flex: 1;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .mockup-card {
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f0f4ff, #e8eeff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #276EF6;
+      font-weight: 600;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .mockup-card.pink { background: linear-gradient(135deg, #fff0f5, #ffe8ef); color: #FF417D; }
+    .mockup-card.green { background: linear-gradient(135deg, #f0fff4, #e8ffee); color: #34c759; }
+    .mockup-card.purple { background: linear-gradient(135deg, #f5f0ff, #efe8ff); color: #af52de; }
+
+    /* ─── FEATURES SECTION ─── */
+    .section-header {
+      text-align: center;
+      padding: 0 24px;
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-100);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900;
+      line-height: 1.3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--gray-500);
+      margin-top: 12px;
+    }
+
+    /* ─── FEATURE GRID ─── */
+    .features-section {
+      padding: 40px 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .features-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .features-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-card-inner {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px;
+    }
+
+    .feature-card-inner.calendar { background: linear-gradient(135deg, #e8f0fe, #c8d9fd); }
+    .feature-card-inner.todos { background: linear-gradient(135deg, #fff0e8, #ffd9c8); }
+    .feature-card-inner.today { background: linear-gradient(135deg, #e8ffe8, #c8fdc8); }
+    .feature-card-inner.notes { background: linear-gradient(135deg, #f8e8ff, #ecc8fd); }
+    .feature-card-inner.chatbot { background: linear-gradient(135deg, #ffe8e8, #fdc8c8); }
+    .feature-card-inner.recap { background: linear-gradient(135deg, #e8f8ff, #c8edfd); }
+    .feature-card-inner.customize { background: linear-gradient(135deg, #fff8e8, #fdedc8); }
+    .feature-card-inner.weather { background: linear-gradient(135deg, #e8efff, #c8d8fd); }
+    .feature-card-inner.price { background: linear-gradient(135deg, #f8ffe8, #edfdc8); }
+
+    .feature-icon {
+      font-size: 40px;
+    }
+
+    .feature-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    /* ─── WHY SECTION ─── */
+    .why-section {
+      padding: 60px 24px 80px;
+      background: var(--gray-100);
+    }
+
+    .why-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .why-card {
+      width: 280px;
+      background: white;
+      border-radius: 28px;
+      border: 1.5px dashed var(--gray-200);
+      padding: 36px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .why-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 4px;
+    }
+
+    .why-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .why-card p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ─── CTA DARK SECTION ─── */
+    .cta-section {
+      margin: 60px 24px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, #415ABE -55.81%, #00061D 40.54%);
+      padding: 80px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+
+    /* Snowflakes */
+    .snowflakes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .snowflake {
+      position: absolute;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      animation: snowfall linear infinite;
+    }
+
+    @keyframes snowfall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+    }
+
+    .snowflake:nth-child(1)  { left: 5%;  animation-duration: 8s;  animation-delay: 0s;   font-size: 10px; }
+    .snowflake:nth-child(2)  { left: 15%; animation-duration: 6s;  animation-delay: 1s;   font-size: 14px; }
+    .snowflake:nth-child(3)  { left: 25%; animation-duration: 9s;  animation-delay: 0.5s; font-size: 8px; }
+    .snowflake:nth-child(4)  { left: 35%; animation-duration: 7s;  animation-delay: 2s;   font-size: 12px; }
+    .snowflake:nth-child(5)  { left: 45%; animation-duration: 11s; animation-delay: 0.2s; font-size: 10px; }
+    .snowflake:nth-child(6)  { left: 55%; animation-duration: 8s;  animation-delay: 1.5s; font-size: 14px; }
+    .snowflake:nth-child(7)  { left: 65%; animation-duration: 6s;  animation-delay: 0.8s; font-size: 10px; }
+    .snowflake:nth-child(8)  { left: 75%; animation-duration: 9s;  animation-delay: 3s;   font-size: 8px; }
+    .snowflake:nth-child(9)  { left: 85%; animation-duration: 7s;  animation-delay: 1s;   font-size: 12px; }
+    .snowflake:nth-child(10) { left: 92%; animation-duration: 10s; animation-delay: 0s;   font-size: 10px; }
+
+    /* ─── PRODUCTS SECTION ─── */
+    .products-section {
+      padding: 60px 24px 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .product-card {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-preview {
+      border-radius: 28px;
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    .product-preview.hooshang { background: rgba(117,122,255,0.1); }
+    .product-preview.dasteawal { background: rgba(255,116,116,0.1); }
+    .product-preview.panjeh { background: rgba(255,153,220,0.1); }
+    .product-preview.next { background: transparent; border: 2px dashed #e8e8ed; }
+
+    .product-preview-icon { font-size: 64px; }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .product-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .product-logo.hooshang { background: rgba(117,122,255,0.15); }
+    .product-logo.dasteawal { background: rgba(255,116,116,0.15); }
+    .product-logo.panjeh { background: rgba(255,153,220,0.15); }
+
+    .product-name {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      border-radius: 36px;
+      margin: 0 16px 16px;
+      padding: 60px 40px 0;
+      color: white;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: white; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 16px 0;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { margin: 12px; border-radius: 16px; }
+      .nav-links { display: none; }
+      .features-grid-2 { grid-template-columns: 1fr 1fr; }
+      .features-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .why-card { width: 100%; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1, .hero p, .hero-buttons {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero p { animation-delay: 0.1s; }
+    .hero-buttons { animation-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg width="20" height="20" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.11133 0.114258C9.44918 0.114258 9.74402 0.271062 9.99805 0.606445C10.2551 0.945852 10.4675 1.46473 10.6279 2.17383C10.9487 3.59126 11.0549 5.72815 10.9424 8.59082C10.9399 8.65386 10.9888 8.70726 11.0518 8.70996C11.1149 8.71249 11.1683 8.66278 11.1709 8.59961C11.2605 6.40337 11.4868 4.76684 11.8447 3.68262C12.2062 2.58777 12.6815 2.11138 13.2354 2.11133C13.5666 2.11133 13.8337 2.23443 14.0449 2.4834C14.2599 2.7369 14.4222 3.12717 14.5225 3.66699C14.6948 4.59574 14.6764 5.93382 14.4648 7.68652C14.421 7.96848 14.3805 8.26747 14.3457 8.58301C14.3391 8.64492 14.3835 8.701 14.4453 8.70898C14.5073 8.71692 14.5642 8.67315 14.5732 8.61133C14.618 8.30437 14.6568 8.00774 14.6914 7.72168C14.8453 6.73262 15.0532 5.96744 15.3135 5.42188C15.6471 4.72268 16.0502 4.41211 16.5107 4.41211C16.8361 4.41222 17.1376 4.58784 17.3984 4.92188C17.6601 5.25696 17.8735 5.74379 18.0156 6.33789C18.2996 7.52514 18.2948 9.11569 17.8633 10.709C17.432 12.3015 16.5766 13.8903 15.166 15.0801C13.7568 16.2687 11.7854 17.0654 9.11133 17.0654C4.88795 17.0653 2.3512 14.8704 1.09375 12.5146C0.463991 11.3348 0.155777 10.1159 0.118164 9.11426C0.09936 8.61338 0.148543 8.17045 0.255859 7.81543C0.363559 7.45922 0.526773 7.20073 0.729492 7.05469C0.974285 6.87845 1.20507 6.79998 1.42285 6.80469C1.63999 6.80942 1.85956 6.89727 2.08301 7.08203C2.53572 7.45662 2.98439 8.21166 3.41895 9.37109C3.43935 9.42505 3.49661 9.45588 3.55273 9.44238C3.60895 9.42885 3.64619 9.37484 3.63965 9.31738C3.33819 6.66997 3.31814 4.69685 3.57227 3.38965C3.69935 2.73601 3.89272 2.25982 4.14453 1.94922C4.39249 1.64348 4.69915 1.49422 5.07129 1.49414C5.31964 1.49414 5.55732 1.61983 5.78418 1.90234C6.01267 2.187 6.22287 2.62276 6.41016 3.21777C6.78448 4.40722 7.05765 6.20082 7.22754 8.60352C7.23205 8.66626 7.28683 8.71399 7.34961 8.70996C7.41234 8.70587 7.46054 8.65158 7.45703 8.58887C7.28611 5.72614 7.34885 3.58917 7.64062 2.17188C7.7866 1.46288 7.98762 0.94436 8.2373 0.605469C8.48372 0.271127 8.77394 0.114393 9.11133 0.114258Z" fill="white" stroke="white" stroke-width="0.3" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span>دستیار</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/mobile">نسخه موبایل</a></li>
+    <li><a href="#">محصولات</a></li>
+    <li><a href="#">بلاگ</a></li>
+    <li><a href="#">تبلیغات</a></li>
+    <li><a href="/plus">دستیار پلاس</a></li>
+  </ul>
+
+  <a class="nav-cta" href="https://chrome.google.com/webstore/detail/dastyar/ebilacdhmebcihmbjgibcbeaihbecapj">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/></svg>
+    نصب دستیار
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>
+    از امروز من
+    <span class="logo-inline">
+      <svg width="44" height="44" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.11133 0.114258C9.44918 0.114258 9.74402 0.271062 9.99805 0.606445C10.2551 0.945852 10.4675 1.46473 10.6279 2.17383C10.9487 3.59126 11.0549 5.72815 10.9424 8.59082C10.9399 8.65386 10.9888 8.70726 11.0518 8.70996C11.1149 8.71249 11.1683 8.66278 11.1709 8.59961C11.2605 6.40337 11.4868 4.76684 11.8447 3.68262C12.2062 2.58777 12.6815 2.11138 13.2354 2.11133C13.5666 2.11133 13.8337 2.23443 14.0449 2.4834C14.2599 2.7369 14.4222 3.12717 14.5225 3.66699C14.6948 4.59574 14.6764 5.93382 14.4648 7.68652C14.421 7.96848 14.3805 8.26747 14.3457 8.58301C14.3391 8.64492 14.3835 8.701 14.4453 8.70898C14.5073 8.71692 14.5642 8.67315 14.5732 8.61133C14.618 8.30437 14.6568 8.00774 14.6914 7.72168C14.8453 6.73262 15.0532 5.96744 15.3135 5.42188C15.6471 4.72268 16.0502 4.41211 16.5107 4.41211C16.8361 4.41222 17.1376 4.58784 17.3984 4.92188C17.6601 5.25696 17.8735 5.74379 18.0156 6.33789C18.2996 7.52514 18.2948 9.11569 17.8633 10.709C17.432 12.3015 16.5766 13.8903 15.166 15.0801C13.7568 16.2687 11.7854 17.0654 9.11133 17.0654C4.88795 17.0653 2.3512 14.8704 1.09375 12.5146C0.463991 11.3348 0.155777 10.1159 0.118164 9.11426C0.09936 8.61338 0.148543 8.17045 0.255859 7.81543C0.363559 7.45922 0.526773 7.20073 0.729492 7.05469C0.974285 6.87845 1.20507 6.79998 1.42285 6.80469C1.63999 6.80942 1.85956 6.89727 2.08301 7.08203C2.53572 7.45662 2.98439 8.21166 3.41895 9.37109C3.43935 9.42505 3.49661 9.45588 3.55273 9.44238C3.60895 9.42885 3.64619 9.37484 3.63965 9.31738C3.33819 6.66997 3.31814 4.69685 3.57227 3.38965C3.69935 2.73601 3.89272 2.25982 4.14453 1.94922C4.39249 1.64348 4.69915 1.49422 5.07129 1.49414C5.31964 1.49414 5.55732 1.61983 5.78418 1.90234C6.01267 2.187 6.22287 2.62276 6.41016 3.21777C6.78448 4.40722 7.05765 6.20082 7.22754 8.60352C7.23205 8.66626 7.28683 8.71399 7.34961 8.70996C7.41234 8.70587 7.46054 8.65158 7.45703 8.58887C7.28611 5.72614 7.34885 3.58917 7.64062 2.17188C7.7866 1.46288 7.98762 0.94436 8.2373 0.605469C8.48372 0.271127 8.77394 0.114393 9.11133 0.114258Z" fill="currentColor" stroke="currentColor" stroke-width="0.3" stroke-linejoin="round"/>
+      </svg>
+      دستیار
+    </span>
+    کار و زندگیتم!
+  </h1>
+  <p>دستیار جعبه ابزاریه در نیوتب مرورگر که کمک می‌کنه به زندگی دیجیتالت نظم بدی.</p>
+
+  <div class="hero-buttons">
+    <a class="btn-primary" href="https://chrome.google.com/webstore/detail/dastyar/ebilacdhmebcihmbjgibcbeaihbecapj">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="white" opacity="0.2"/><path d="M16 10c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="white"/></svg>
+      نصب روی کروم
+    </a>
+    <a class="btn-secondary" href="/mobile">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="18" width="18"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm80 432h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H160c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+      نصب اپ موبایل
+    </a>
+  </div>
+</section>
+
+<!-- ── PHONE INPUT ── -->
+<div class="phone-section">
+  <p>شماره موبایلتون رو وارد کنید تا لینک نصب براتون ارسال شه:</p>
+  <div class="phone-form">
+    <div class="phone-input-wrap">
+      <input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹"/>
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+    </div>
+    <button class="phone-submit">ارسال لینک</button>
+  </div>
+</div>
+
+<!-- ── APP PREVIEW MOCKUP ── -->
+<div class="preview-wrap">
+  <div class="preview-desktop">
+    <div class="preview-mockup">
+      <div class="mockup-sidebar">
+        <div class="mockup-sidebar-item active"></div>
+        <div class="mockup-sidebar-item"></div>
+        <div class="mockup-sidebar-item"></div>
+        <div class="mockup-sidebar-item"></div>
+        <div class="mockup-sidebar-item"></div>
+      </div>
+      <div class="mockup-main">
+        <div class="mockup-card">📅 تقویم</div>
+        <div class="mockup-card pink">✅ وظایف</div>
+        <div class="mockup-card green">☀️ آب و هوا</div>
+        <div class="mockup-card purple">📝 یادداشت</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURES TABS ── -->
+<div style="padding: 0 24px; max-width: 900px; margin: 0 auto;">
+  <div style="display:flex;justify-content:center;margin-bottom:24px;">
+    <div style="background:#f5f5f7;border-radius:999px;padding:8px;display:inline-flex;gap:8px;">
+      <button style="background:white;border:none;border-radius:999px;padding:8px 20px;font-family:Vazirmatn,sans-serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 10H4V19H20V10ZM5 6V8H7V6H5ZM9 6V8H11V6H9Z"/></svg>
+        افزونه نیوتب
+      </button>
+      <button style="background:transparent;border:none;border-radius:999px;padding:8px 20px;font-family:Vazirmatn,sans-serif;font-size:14px;font-weight:700;cursor:pointer;opacity:0.5;display:flex;align-items:center;gap:6px;">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="14" width="14"><path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm80 432h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H160c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+        موبایل
+      </button>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-bottom:32px;">
+    <div style="font-size:clamp(22px,4vw,33px);font-weight:900;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;">
+      <span>دستیار</span>
+      <span style="font-size:24px;">📦</span>
+      <span>یه ابزار ساده دیگه نیست!</span>
+    </div>
+    <p style="color:#6e6e73;font-size:15px;margin-top:8px;">ابزار روزمره پر کاربردت، روی نیوتب مرورگر</p>
+  </div>
+</div>
+
+<!-- ── FEATURE CARDS ── -->
+<section class="features-section">
+  <div class="features-grid-2">
+    <div class="feature-card">
+      <div class="feature-card-inner calendar">
+        <div class="feature-icon">📅</div>
+        <div class="feature-label">تقویم</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner todos">
+        <div class="feature-icon">✅</div>
+        <div class="feature-label">وظایف</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner today">
+        <div class="feature-icon">🌅</div>
+        <div class="feature-label">امروز</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner notes">
+        <div class="feature-icon">📝</div>
+        <div class="feature-label">یادداشت</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner chatbot">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-label">چت‌بات</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner recap">
+        <div class="feature-icon">📊</div>
+        <div class="feature-label">خلاصه روز</div>
+      </div>
+    </div>
+  </div>
+  <div class="features-grid-3" style="margin-top:16px;">
+    <div class="feature-card">
+      <div class="feature-card-inner customize">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-label">شخصی‌سازی</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner weather">
+        <div class="feature-icon">⛅</div>
+        <div class="feature-label">آب و هوا</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner price">
+        <div class="feature-icon">💰</div>
+        <div class="feature-label">قیمت‌ها</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY SECTION ── -->
+<section class="why-section">
+  <div class="section-header">
+    <div class="section-title">
+      <span>چرا دستیار</span>
+      <span style="font-size:36px;">💎</span>
+      <span>محبوب کاربرانه؟</span>
+    </div>
+  </div>
+  <div class="why-cards">
+    <div class="why-card">
+      <div class="why-icon-wrap">🔒</div>
+      <h3>حفظ حریم شخصی</h3>
+      <p>اولویت ما امنیت اطلاعات کاربرامونه.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap">⭐</div>
+      <h3>محبوب کاربران</h3>
+      <p>امتیاز بالای کاربران در استور‌های مرورگر و موبایل</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon-wrap">🌐</div>
+      <h3>دسترسی در همه‌جا</h3>
+      <p>قابل نصب روی مرورگر و سیستم عامل‌های مختلف</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA DARK SECTION ── -->
+<div style="padding:0 24px;">
+  <section class="cta-section">
+    <div class="snowflakes">
+      <div class="snowflake">❄</div><div class="snowflake">❄</div>
+      <div class="snowflake">❄</div><div class="snowflake">❄</div>
+      <div class="snowflake">❄</div><div class="snowflake">❄</div>
+      <div class="snowflake">❄</div><div class="snowflake">❄</div>
+      <div class="snowflake">❄</div><div class="snowflake">❄</div>
+    </div>
+    <h2>وقتشه که<br/>یه دستیار شخصی<br/>داشته باشی:</h2>
+    <a class="btn-primary" href="https://chrome.google.com/webstore/detail/dastyar/ebilacdhmebcihmbjgibcbeaihbecapj" style="position:relative;z-index:10;">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/></svg>
+      نصب دستیار
+    </a>
+  </section>
+</div>
+
+<!-- ── PRODUCTS SECTION ── -->
+<section class="products-section">
+  <div class="section-header">
+    <div class="section-title">
+      <span>اپ‌های روزمره</span>
+      <span style="font-size:30px;">👆</span>
+      <span>دم دستت</span>
+    </div>
+    <p class="section-sub">با ویجت و شلف‌های دستیار</p>
+  </div>
+
+  <div class="products-grid">
+    <a class="product-card" href="https://zaya.link/landing-hooshang">
+      <div class="product-preview hooshang">
+        <div class="product-preview-icon">🧠</div>
+      </div>
+      <div class="product-info">
+        <div class="product-logo hooshang">🧠</div>
+        <div>
+          <div class="product-name">هوشنگ</div>
+          <div class="product-desc">هوش مصنوعی زندگی روزمره آدم‌ها</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://zaya.link/landing-d1">
+      <div class="product-preview dasteawal">
+        <div class="product-preview-icon">📰</div>
+      </div>
+      <div class="product-info">
+        <div class="product-logo dasteawal">📰</div>
+        <div>
+          <div class="product-name">دست‌اول</div>
+          <div class="product-desc">اخبار رو خلاصه، شخصی‌سازی شده بخون!</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://zaya.link/landing-panjeh">
+      <div class="product-preview panjeh">
+        <div class="product-preview-icon">🖐️</div>
+      </div>
+      <div class="product-info">
+        <div class="product-logo panjeh">🖐️</div>
+        <div>
+          <div class="product-name">پنجه</div>
+          <div class="product-desc">دستیار تو دنیای موازی افزونه‌ها!</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="product-card">
+      <div class="product-preview next">
+        <div style="color:#aaa;font-size:14px;text-align:center;">محصول بعدی....</div>
+      </div>
+      <div class="product-info">
+        <div style="width:44px;height:44px;border-radius:14px;background:#f5f5f7;"></div>
+        <div>
+          <div class="product-name">محصول بعدی....</div>
+          <div class="product-desc">منتظر باش تا کار بعدی دستیارو ببینی 👀</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div style="text-align:center;margin-bottom:48px;">
+    <h2 style="font-size:clamp(24px,4vw,38px);font-weight:800;color:white;line-height:1.4;margin-bottom:24px;">
+      از امروز من<br/>
+      <span style="color:#6B9EFF;">دستیار</span><br/>
+      کار و زندگیتم!
+    </h2>
+    <a class="btn-primary" href="https://chrome.google.com/webstore/detail/dastyar/ebilacdhmebcihmbjgibcbeaihbecapj" style="display:inline-flex;">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/></svg>
+      نصب دستیار
+    </a>
+  </div>
+
+  <div class="footer-top">
+    <div class="footer-col">
+      <h4>دستیار</h4>
+      <ul>
+        <li><a href="#">نقشه راه</a></li>
+        <li><a href="#">همکاری</a></li>
+        <li><a href="#">سند حریم خصوصی</a></li>
+        <li><a href="#">بلاگ</a></li>
+        <li><a href="#">قصه‌ی ما</a></li>
+        <li><a href="#">ارتباط با ما</a></li>
+        <li><a href="#">فیدبک به ما</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>محصولات</h4>
+      <ul>
+        <li><a href="/">دستیار</a></li>
+        <li><a href="https://zaya.link/landing-d1">دست اول</a></li>
+        <li><a href="https://zaya.link/landing-hooshang">هوشنگ</a></li>
+        <li><a href="https://zaya.link/landing-panjeh">پنجه</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>شبکه‌های اجتماعی</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/dastyar" target="_blank">لینکدین</a></li>
+        <li><a href="https://www.instagram.com/dastyar.io" target="_blank">اینستاگرام</a></li>
+        <li><a href="https://twitter.com/Dastyar_io" target="_blank">توییتر</a></li>
+        <li><a href="https://www.youtube.com/@dastyar_io" target="_blank">یوتیوب</a></li>
+        <li><a href="https://t.me/Poshtibani_Dastyar" target="_blank">پشتیبانی تلگرام</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    کپی رایت © ۲۰۲۴ شرکت دستیار هوشمند خلاق (سهامی خاص). تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+</body>
+</html>
