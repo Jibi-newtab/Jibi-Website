@@ -1,0 +1,1383 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جيبي - تب جدید هوشمند</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #5B5EFF;
+            --primary-soft: #EEEEFF;
+            --accent: #FF5C8D;
+            --green: #22C97C;
+            --bg: #FFFFFF;
+            --bg-soft: #F7F7FC;
+            --bg-mid: #F0F0F8;
+            --text: #1A1A2E;
+            --text-mid: #4A4A6A;
+            --text-light: #8888AA;
+            --border: #E8E8F0;
+            --shadow: 0 4px 24px rgba(91,94,255,0.08);
+            --shadow-lg: 0 20px 60px rgba(91,94,255,0.14);
+            --radius: 20px;
+            --radius-sm: 12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* ===== NAVBAR (Dastyar Style) ===== */
+        nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: calc(100% - 32px);
+            max-width: 1200px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157,160,175,0.2);
+            border-radius: 999px;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 999px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--primary); background: rgba(91,94,255,0.08); }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(180deg, #6B9EFF 0%, var(--primary) 100%);
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 999px !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            text-decoration: none;
+            transition: all 0.2s !important;
+            box-shadow: 0 4px 16px rgba(91,94,255,0.35);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(91,94,255,0.45);
+        }
+
+        /* ===== HERO SECTION (Dastyar Style with Animation) ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #F5F5FF 0%, #FFFFFF 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(91,94,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            z-index: 1;
+        }
+
+        .hero h1 .logo-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-mid);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            z-index: 1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(180deg, #76A5FF 0%, var(--primary) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 24px rgba(91,94,255,0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(91,94,255,0.45);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(180deg, #f5f5f7 0%, #e5e5ea 100%);
+            color: var(--text);
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover { transform: translateY(-2px); }
+
+        /* Word Rotator */
+        .sentence {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            color: var(--primary);
+            flex-wrap: wrap;
+        }
+
+        .rotating-wrapper {
+            position: relative;
+            width: 220px;
+            height: 280px;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .word {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+            font-weight: normal;
+            color: var(--text);
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .word.pos2 { top: 0%; opacity: 0.3; font-size: 0.9em; }
+        .word.pos1 { top: 22%; opacity: 0.55; font-size: 1em; }
+        .word.active { top: 50%; transform: translateY(-50%); opacity: 1; font-weight: 800; font-size: 1.2em; }
+        .word.neg1 { top: 72%; opacity: 0.55; font-size: 1em; }
+        .word.neg2 { top: 90%; opacity: 0.3; font-size: 0.9em; }
+
+        /* ===== TWO BOXES SECTION (Mach Style) ===== */
+        .steps-section {
+            padding: 80px 24px;
+            background: #F3F4F6;
+            border-radius: 50px;
+            margin: 40px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-mid);
+        }
+
+        .steps-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 900px) {
+            .steps-container { grid-template-columns: 1fr; }
+        }
+
+        .step-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .step-box h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .step-box p {
+            font-size: 16px;
+            color: var(--text-mid);
+            line-height: 1.8;
+        }
+
+        .why-section {
+            padding: 80px 24px;
+            background: white;
+        }
+
+        .why-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .why-grid { grid-template-columns: 1fr; }
+        }
+
+        .why-card {
+            background: var(--bg-soft);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            border: 1.5px dashed var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .why-card h4 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.7;
+        }
+
+        /* ===== DETAILED VIEW SECTION (JibiPoshti Style) ===== */
+        .detail-section {
+            padding: 100px 24px;
+            background: var(--bg);
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .detail-row:last-child { margin-bottom: 0; }
+        .detail-row.reverse .detail-text { order: 2; }
+        .detail-row.reverse .detail-visual { order: 1; }
+
+        @media (max-width: 900px) {
+            .detail-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .detail-row.reverse .detail-text { order: 1; }
+            .detail-row.reverse .detail-visual { order: 2; }
+        }
+
+        .detail-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .detail-text h2 {
+            font-size: clamp(26px, 3.5vw, 38px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .detail-text p {
+            font-size: 16px;
+            color: var(--text-mid);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .feature-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-soft);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-mid);
+        }
+
+        .feature-chip::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .detail-visual {
+            background: linear-gradient(135deg, var(--bg-soft) 0%, var(--primary-soft) 100%);
+            border-radius: var(--radius);
+            padding: 40px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mockup-browser {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .mockup-bar {
+            background: #F0F0F5;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mockup-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .mockup-dot:nth-child(1) { background: #FF5F57; }
+        .mockup-dot:nth-child(2) { background: #FFBC2E; }
+        .mockup-dot:nth-child(3) { background: #28CA41; }
+
+        .mockup-content {
+            background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        /* ===== TOOLS SECTION (JibiPoshti Style) ===== */
+        .tools-section {
+            padding: 100px 24px;
+            background: var(--bg-soft);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+
+        .tool-card:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .tool-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .tool-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .tool-card p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ===== TESTIMONIALS SECTION (Jibi Style) ===== */
+        .testimonials-section {
+            padding: 100px 24px;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+
+        .testimonial-card {
+            background: var(--bg-soft);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .stars {
+            color: #FFB800;
+            font-size: 16px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .author-info h5 {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ===== FAQ SECTION (JibiPoshti Style) ===== */
+        .faq-section {
+            padding: 100px 24px;
+            background: var(--bg-soft);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .faq-item:hover { box-shadow: var(--shadow); }
+
+        .faq-item.active {
+            box-shadow: var(--shadow);
+            border-color: rgba(91,94,255,0.25);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            background: var(--bg-soft);
+            transition: all 0.2s;
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.25s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 20px 24px;
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.9;
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item.active .faq-answer { display: block; }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            margin: 60px 24px;
+            border-radius: 36px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5B5EFF 100%);
+            padding: 100px 24px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cta-section h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            color: white;
+            line-height: 1.4;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0.8) 40%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255,255,255,0.6), 0 0 20px 5px rgba(91,94,255,0.3);
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100px) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-500px) translateX(50px); opacity: 0; }
+        }
+
+        .particle:nth-child(1)  { left: 5%;  animation-duration: 12s;  animation-delay: 0s; }
+        .particle:nth-child(2)  { left: 12%; animation-duration: 15s;  animation-delay: 1s; width: 4px; height: 4px; }
+        .particle:nth-child(3)  { left: 18%; animation-duration: 10s;  animation-delay: 2s; width: 8px; height: 8px; }
+        .particle:nth-child(4)  { left: 25%; animation-duration: 13s;  animation-delay: 0.5s; }
+        .particle:nth-child(5)  { left: 32%; animation-duration: 11s;  animation-delay: 3s; width: 5px; height: 5px; }
+        .particle:nth-child(6)  { left: 40%; animation-duration: 14s;  animation-delay: 1.5s; }
+        .particle:nth-child(7)  { left: 48%; animation-duration: 16s;  animation-delay: 2.5s; width: 3px; height: 3px; }
+        .particle:nth-child(8)  { left: 55%; animation-duration: 9s;   animation-delay: 0.8s; width: 7px; height: 7px; }
+        .particle:nth-child(9)  { left: 62%; animation-duration: 13s;  animation-delay: 1.2s; }
+        .particle:nth-child(10) { left: 70%; animation-duration: 11s;  animation-delay: 2s; width: 4px; height: 4px; }
+        .particle:nth-child(11) { left: 76%; animation-duration: 15s;  animation-delay: 0.3s; }
+        .particle:nth-child(12) { left: 82%; animation-duration: 10s;  animation-delay: 1.8s; width: 6px; height: 6px; }
+        .particle:nth-child(13) { left: 88%; animation-duration: 14s;  animation-delay: 2.2s; width: 5px; height: 5px; }
+        .particle:nth-child(14) { left: 94%; animation-duration: 12s;  animation-delay: 0.6s; }
+        .particle:nth-child(15) { left: 98%; animation-duration: 13s;  animation-delay: 3.5s; width: 4px; height: 4px; }
+
+        /* ===== FOOTER (Mach Style with Snow) ===== */
+        footer {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a14 100%);
+            border-radius: 36px 36px 0 0;
+            margin: 0 0 0;
+            padding: 80px 40px 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-snowflakes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .footer-snowflake {
+            position: absolute;
+            color: rgba(255,255,255,0.4);
+            font-size: 10px;
+            animation: snowfall-footer linear infinite;
+        }
+
+        @keyframes snowfall-footer {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+        }
+
+        .footer-snowflake:nth-child(1)  { left: 8%;  animation-duration: 9s;  animation-delay: 0s;   font-size: 8px; }
+        .footer-snowflake:nth-child(2)  { left: 18%; animation-duration: 7s;  animation-delay: 1.5s; font-size: 12px; }
+        .footer-snowflake:nth-child(3)  { left: 28%; animation-duration: 10s; animation-delay: 0.3s; font-size: 7px; }
+        .footer-snowflake:nth-child(4)  { left: 42%; animation-duration: 8s;  animation-delay: 2.2s; font-size: 10px; }
+        .footer-snowflake:nth-child(5)  { left: 52%; animation-duration: 12s; animation-delay: 0.8s; font-size: 9px; }
+        .footer-snowflake:nth-child(6)  { left: 62%; animation-duration: 9s;  animation-delay: 1.2s; font-size: 11px; }
+        .footer-snowflake:nth-child(7)  { left: 72%; animation-duration: 7s;  animation-delay: 0.5s; font-size: 8px; }
+        .footer-snowflake:nth-child(8)  { left: 82%; animation-duration: 11s; animation-delay: 2.5s; font-size: 10px; }
+        .footer-snowflake:nth-child(9)  { left: 90%; animation-duration: 8s;  animation-delay: 1.8s; font-size: 9px; }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        .footer-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), #8B8FFF);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        .footer-brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            nav { padding: 10px 16px; }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .anim {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .anim.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="icon.png" alt="">
+        </div>
+        <span>جیبی</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#features">امکانات</a></li>
+        <li><a href="#tools">ابزارها</a></li>
+        <li><a href="#testimonials">نظرات</a></li>
+        <li><a href="#faq">سوالات</a></li>
+        <li><a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
+            </svg>
+            نصب روی کروم
+        </a></li>
+    </ul>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1 style="font-size: clamp(36px, 3vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
+        <span style="color: var(--primary);">جیبی</span>، تب
+        <div class="rotating-wrapper" style="width: 300px; height: 380px;">
+            <span class="word">شخصی 🌿</span>
+            <span class="word">کارآمد 💼</span>
+            <span class="word">ایمن 🔒</span>
+            <span class="word">سریع ⚡</span>
+            <span class="word">رایگان 🎁</span>
+            <span class="word">مینیمال ✨</span>
+        </div>
+        برای تو
+    </h1>
+
+    <p>جيبي تب جدید مرورگرت رو تبدیل می‌کنه به یه داشبورد شخصی کامل با ابزارهای کاربردی روزمره.</p>
+
+    <div class="hero-buttons">
+        <a href="https://chrome.google.com/webstore" class="btn-primary" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" fill="white" opacity="0.2"/>
+                <path d="M16 10c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="white"/>
+            </svg>
+            نصب روی کروم
+        </a>
+        <a href="#features" class="btn-secondary">بیشتر بدون</a>
+    </div>
+</section>
+
+<!-- STEPS SECTION (Mach Style) -->
+<section class="steps-section">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-[20px] p-10">
+        <h3 class="text-2xl sm:text-4xl font-bold text-center mb-12 text-gray-800">3 قدم تا تب شخصی و شروع کار با جیبی</h3>
+        <div class="steps-container">
+            <div class="step-box anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🤝</div>
+                <h4 class="text-2xl font-semibold mb-2">1. نصب کن</h4>
+                <p class="text-gray-600 text-lg">افزونه رایگان جیبی را به کروم اضافه کن و صفحه تب جدیدت را آماده کن..</p>
+            </div>
+            <div class="step-box anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🖌️</div>
+                <h4 class="text-2xl font-semibold mb-2">2.   شخصی‌سازی کن </h4>
+                <p class="text-gray-600 text-lg">تم، پس‌زمینه، ویجت‌ها و لیست کارهای روزانه‌ت را دقیقاً مطابق سلیقه‌ت بچین..</p>
+            </div>
+            <div class="step-box anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🥳</div>
+                <h4 class="text-2xl font-semibold mb-2">3.  لذت ببر!</h4>
+                <p class="text-gray-600 text-lg"> با داشبورد جیبی سریع به بوکمارک‌ها، تقویم، آب‌وهوا و ابزارهای مورد علاقه‌ت دسترسی داشته باش  !</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY SECTION (Mach Style) -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
+            چرا <span class="text-blue-700"> جیبی</span>؟
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">😎</div>
+                <h4 class="text-2xl font-semibold mb-2 text-blue-600">تجربه آرام و مینیمال  </h4>
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    هم‌اتاقی‌ای پیدا کن که با سبک زندگی‌ت، مثل شب‌بیداری یا تمیزی، هماهنگه.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">👀</div>
+                <h4 class="text-2xl font-semibold mb-2 text-blue-600">دسترسی سریع و هوشمند </h4>
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    هم‌اتاقی‌ت رو بر اساس دانشگاه، شهر، یا رشته‌ت پیدا کن.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="text-center p-6 bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
+                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🔥</div>
+                <h4 class="text-2xl font-semibold mb-2 text-blue-600">ساده  و رایگان</h4>
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    تو چند دقیقه و بدون هزینه هم‌اتاقی مناسب رو پیدا کن.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILED VIEW SECTION -->
+<section class="detail-section" id="features">
+    <div class="detail-container">
+        <div class="section-header anim">
+            <span class="detail-tag">نگاهی دقیق‌تر</span>
+            <h2 class="section-title">بیا ببینیم چطور جيبي کارت رو راحت‌تر میکنه</h2>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-text anim">
+                <span class="detail-tag">شخصی‌سازی</span>
+                <h2>مال خودت باشه،<br>نه همه</h2>
+                <p>رنگ، تم، پس‌زمینه، فونت و چیدمان رو بر اساس سلیقه خودت تنظیم کن. جيبي به قالب‌های از پیش تعریف‌شده محدود نیست.</p>
+                <div class="feature-list">
+                    <span class="feature-chip">۱۵+ تم آماده</span>
+                    <span class="feature-chip">پس‌زمینه دلخواه</span>
+                    <span class="feature-chip">رنگ اکسنت</span>
+                </div>
+            </div>
+            <div class="detail-visual anim">
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">🎨 شخصی‌سازی</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-row reverse">
+            <div class="detail-text anim">
+                <span class="detail-tag">حریم خصوصی</span>
+                <h2>داده‌هات<br>فقط مال توئه</h2>
+                <p>جيبي کاملاً آفلاین کار می‌کنه. هیچ اطلاعاتی به سرور ارسال نمی‌شه، هیچ حسابی لازم نیست، و هیچ ردیابی‌ای در کار نیست.</p>
+                <div class="feature-list">
+                    <span class="feature-chip">ذخیره محلی</span>
+                    <span class="feature-chip">بدون سرور</span>
+                    <span class="feature-chip">بدون ثبت‌نام</span>
+                </div>
+            </div>
+            <div class="detail-visual anim">
+                <div class="mockup-browser">
+                    <div class="mockup-bar">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">🛡️ حریم خصوصی</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section class="tools-section" id="tools">
+    <div class="section-header anim">
+        <span class="detail-tag">ابزارها</span>
+        <h2 class="section-title">ابزارهای روزمره، دم دستت</h2>
+        <p class="section-subtitle">بدون اینکه تب جدیدی باز کنی</p>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card anim"><span class="tool-icon">🎨</span><h4>طراحی مینیمال و مدرن</h4><p>ظاهری تمیز و دلنشین</p></div>
+        <div class="tool-card anim"><span class="tool-icon">🖌️</span><h4>شخصی‌سازی کامل</h4><p>تم و پس‌زمینه دلخواه</p></div>
+        <div class="tool-card anim"><span class="tool-icon">✅</span><h4>لیست کارهای روزانه</h4><p>To-Do List</p></div>
+        <div class="tool-card anim"><span class="tool-icon">🔖</span><h4>بوکمارک‌ها</h4><p>دسترسی سریع به سایت‌ها</p></div>
+        <div class="tool-card anim"><span class="tool-icon">☀️</span><h4>ویجت آب‌وهوا</h4><p>وضعیت هوا به صورت زنده</p></div>
+        <div class="tool-card anim"><span class="tool-icon">🎶</span><h4>پلیر موسیقی</h4><p>مینیمال برای تغییر حال‌وهوا</p></div>
+        <div class="tool-card anim"><span class="tool-icon">📧</span><h4>اپلیکیشن‌های گوگل</h4><p>جیمیل، درایو، تقویم</p></div>
+        <div class="tool-card anim"><span class="tool-icon">💰</span><h4>قیمت لحظه‌ای</h4><p>ارز، طلا و رمزارز</p></div>
+        <div class="tool-card anim"><span class="tool-icon">📅</span><h4>تقویم حرفه‌ای</h4><p>تقویم شمسی و میلادی</p></div>
+        <div class="tool-card anim"><span class="tool-icon">🤖</span><h4>هوش مصنوعی</h4><p>دسترسی مستقیم به AI</p></div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section" id="testimonials">
+    <div class="section-header anim">
+        <span class="detail-tag">نظر کاربران</span>
+        <h2 class="section-title">اونایی که جیبی رو امتحان کردن</h2>
+    </div>
+
+    <div class="testimonials-grid">
+        <div class="testimonial-card anim">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">بهترین تب جدیدی که تا حالا نصب کردم. هر بار که مرورگر باز می‌کنم حس می‌کنم همه چیز دم دستمه. طراحیش هم خیلی آروم‌بخشه.</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">م</div>
+                <div class="author-info"><h5>مهدی رضایی</h5><p>طراح محصول</p></div>
+            </div>
+        </div>
+        <div class="testimonial-card anim">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">به عنوان یه دولوپر، خیلی مهمه که ابزارام دم دست باشن. جيبي این کار رو کرده. قیمت دلار و لینک‌های گیت همیشه جلوی چشمامه.</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">ع</div>
+                <div class="author-info"><h5>علی کریمی</h5><p>توسعه‌دهنده فرانت‌اند</p></div>
+            </div>
+        </div>
+        <div class="testimonial-card anim">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">نگران حریم خصوصی‌ام بودم ولی اینکه همه چیز لوکاله اطمینانم رو جلب کرد. حالا دیگه هیچ تب جدید دیگه‌ای نمی‌خوام.</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">س</div>
+                <div class="author-info"><h5>سارا احمدی</h5><p>دانشجوی ارشد</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+    <div class="section-header anim">
+        <span class="detail-tag">سوالات متداول</span>
+        <h2 class="section-title">یه سوال داری؟</h2>
+        <p class="section-subtitle">احتمالاً جوابش اینجاست</p>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item anim">
+            <div class="faq-question">
+                جيبي چیه و چیکار میکنه؟
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                جيبي یه افزونه مرورگره که صفحه تب جدیدت رو تبدیل میکنه به یه فضای کاری هوشمند. با امکاناتی مثل جستجوی پیشرفته، آب و هوا، تودولیست، بوکمارک، تقویم شمسی و خیلی چیزهای دیگه.
+            </div>
+        </div>
+        <div class="faq-item anim">
+            <div class="faq-question">
+                روی چه مرورگرهایی کار میکنه؟
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                فعلا روی گوگل کروم و مرورگرهای مبتنی بر Chromium مثل Edge، Brave و Opera کار میکنه. نسخه فایرفاکس هم به زودی منتشر میشه.
+            </div>
+        </div>
+        <div class="faq-item anim">
+            <div class="faq-question">
+                واقعاً رایگانه؟
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                آره، کاملا رایگان و برای همیشه رایگان میمونه. هیچ نسخه پولی یا پریمیومی نداریم. همه امکانات برای همه کاملاً آزاده.
+            </div>
+        </div>
+        <div class="faq-item anim">
+            <div class="faq-question">
+                اطلاعاتم امنه؟
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                بله، هیچ اطلاعاتی جمع‌آوری نمیشه. همه چیز محلیه و توی مرورگر خودت ذخیره میشه. ما دسترسی به هیچ چیزی نداریم و نمی‌خوایم هم داشته باشیم.
+            </div>
+        </div>
+        <div class="faq-item anim">
+            <div class="faq-question">
+                چطور میتونم تنظیماتم رو بکاپ بگیرم؟
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                توی منوی تنظیمات، بخش Backup & Restore داریم. با یه کلیک همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌هات رو به صورت فایل JSON ذخیره کن و بعدا بازگردون.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<div style="padding: 0 24px;">
+    <section class="cta-section">
+        <div class="particles">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        </div>
+        <h2>وقتشه که<br/>یه جیبی شخصی<br/>داشته باشی:</h2>
+        <a href="https://chrome.google.com/webstore" class="btn-primary" target="_blank" style="position:relative;z-index:10;">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
+            </svg>
+            نصب دستیار
+        </a>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-snowflakes">
+        <div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div>
+        <div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div>
+        <div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div>
+        <div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div>
+        <div class="footer-snowflake">❄</div>
+    </div>
+
+    <div class="footer-content">
+        <div class="footer-top">
+            <div>
+                <div class="footer-brand-logo">
+                    <div class="footer-logo-icon">ج</div>
+                    <span class="footer-brand-name">جيبي</span>
+                </div>
+                <p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان، متن‌باز و محافظ حریم خصوصی.</p>
+            </div>
+            <div class="footer-col">
+                <h4>محصول</h4>
+                <a href="#features">امکانات</a>
+                <a href="#tools">ابزارها</a>
+                <a href="#faq">سوالات</a>
+                <a href="#">دانلود</a>
+            </div>
+            <div class="footer-col">
+                <h4>پشتیبانی</h4>
+                <a href="#">راهنما</a>
+                <a href="#">گزارش باگ</a>
+                <a href="#">درخواست قابلیت</a>
+                <a href="#">تماس با ما</a>
+            </div>
+            <div class="footer-col">
+                <h4>شبکه‌های اجتماعی</h4>
+                <a href="#">اینستاگرام</a>
+                <a href="#">توییتر / X</a>
+                <a href="#">تلگرام</a>
+                <a href="#">لینکدین</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
+            <span class="footer-copy">© ۱۴۰۳ جيبي</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Word Rotator
+    const words = document.querySelectorAll('.rotating-wrapper .word');
+    let index = 0;
+
+    function updateWords() {
+        words.forEach(word => {
+            word.classList.remove('pos2', 'pos1', 'active', 'neg1', 'neg2');
+        });
+
+        const len = words.length;
+        const pos2Index = (index - 2 + len) % len;
+        const pos1Index = (index - 1 + len) % len;
+        const activeIndex = index;
+        const neg1Index = (index + 1) % len;
+        const neg2Index = (index + 2) % len;
+
+        words[pos2Index].classList.add('pos2');
+        words[pos1Index].classList.add('pos1');
+        words[activeIndex].classList.add('active');
+        words[neg1Index].classList.add('neg1');
+        words[neg2Index].classList.add('neg2');
+
+        index = (index + 1) % len;
+    }
+
+    if (words.length > 0) {
+        updateWords();
+        setInterval(updateWords, 2000);
+    }
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            const isOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isOpen) item.classList.add('active');
+        });
+    });
+
+    // Scroll Animations
+    const anims = document.querySelectorAll('.anim');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    anims.forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
