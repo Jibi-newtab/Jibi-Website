@@ -10,6 +10,10 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
         :root {
             --primary: #5B5EFF;
             --primary-soft: #EEEEFF;
@@ -18,14 +22,38 @@
             --bg: #FFFFFF;
             --bg-soft: #F7F7FC;
             --bg-mid: #F0F0F8;
+            --bg-section: #F3F4F6;
+            --bg-card: #FFFFFF;
             --text: #1A1A2E;
             --text-mid: #4A4A6A;
             --text-light: #8888AA;
             --border: #E8E8F0;
+            --nav-bg: rgba(255,255,255,0.92);
+            --mobile-menu-bg: rgba(255,255,255,0.97);
+            --mockup-bar: #F0F0F5;
             --shadow: 0 4px 24px rgba(91,94,255,0.08);
             --shadow-lg: 0 20px 60px rgba(91,94,255,0.14);
             --radius: 20px;
             --radius-sm: 12px;
+        }
+
+        [data-theme="dark"] {
+            --primary: #7B7EFF;
+            --primary-soft: #1E1E3F;
+            --bg: #0F0F1A;
+            --bg-soft: #161625;
+            --bg-mid: #1E1E33;
+            --bg-section: #141422;
+            --bg-card: #1A1A2E;
+            --text: #F0F0FF;
+            --text-mid: #A0A0C0;
+            --text-light: #6060A0;
+            --border: #2A2A45;
+            --nav-bg: rgba(15,15,26,0.92);
+            --mobile-menu-bg: rgba(20,20,40,0.97);
+            --mockup-bar: #252540;
+            --shadow: 0 4px 24px rgba(91,94,255,0.18);
+            --shadow-lg: 0 20px 60px rgba(91,94,255,0.25);
         }
 
         html { scroll-behavior: smooth; }
@@ -41,17 +69,16 @@
         /* ===== NAVBAR (Dastyar Style) ===== */
         nav {
             position: fixed;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            width: calc(100% - 32px);
-            max-width: 1200px;
-            background: rgba(255,255,255,0.92);
+            width: 100%;
+            background: var(--nav-bg);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(157,160,175,0.2);
-            border-radius: 200px;
-            padding: 10px 24px;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+            padding: 10px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -122,6 +149,12 @@
             box-shadow: 0 6px 20px rgba(91,94,255,0.45);
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* ===== HERO SECTION (Dastyar Style with Animation) ===== */
         .hero {
             min-height: 100vh;
@@ -129,11 +162,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 140px 24px 80px;
+            padding: 120px 24px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(180deg, #F5F5FF 0%, #FFFFFF 100%);
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
         }
 
         .hero::before {
@@ -212,7 +245,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(180deg, #f5f5f7 0%, #e5e5ea 100%);
+            background: var(--bg-mid);
             color: var(--text);
             padding: 14px 32px;
             border-radius: 999px;
@@ -282,7 +315,7 @@
         /* ===== TWO BOXES SECTION (Mach Style) ===== */
         .steps-section {
             padding: 80px 24px;
-            background: #F3F4F6;
+            background: var(--bg-section);
             border-radius: 50px;
             margin: 40px 24px;
         }
@@ -348,7 +381,7 @@
 
         .why-section {
             padding: 80px 24px;
-            background: white;
+            background: var(--bg);
         }
 
         .why-grid {
@@ -380,7 +413,7 @@
         .why-icon {
             width: 80px;
             height: 80px;
-            background: white;
+            background: var(--bg-card);
             border-radius: 22px;
             display: flex;
             align-items: center;
@@ -502,14 +535,14 @@
 
         .mockup-browser {
             width: 100%;
-            background: white;
+            background: var(--bg-card);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
 
         .mockup-bar {
-            background: #F0F0F5;
+            background: var(--mockup-bar);
             padding: 12px 16px;
             display: flex;
             align-items: center;
@@ -548,7 +581,7 @@
         }
 
         .tool-card {
-            background: white;
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: 28px 20px;
@@ -583,7 +616,7 @@
         /* ===== TESTIMONIALS SECTION (Jibi Style) ===== */
         .testimonials-section {
             padding: 100px 24px;
-            background: white;
+            background: var(--bg);
         }
 
         .testimonials-grid {
@@ -599,7 +632,7 @@
         }
 
         .testimonial-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius);
             padding: 32px;
             border: 1px solid var(--border);
@@ -668,7 +701,7 @@
         }
 
         .faq-item {
-            background: white;
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             margin-bottom: 16px;
@@ -692,7 +725,7 @@
             justify-content: space-between;
             align-items: center;
             color: var(--text);
-            background: white;
+            background: var(--bg-card);
             transition: all 0.2s;
         }
 
@@ -704,7 +737,7 @@
         .faq-toggle {
             width: 28px;
             height: 28px;
-            background: white;
+            background: var(--bg-card);
             border-radius: 50%;
             border: 1.5px solid var(--border);
             display: flex;
@@ -728,7 +761,7 @@
             font-size: 15px;
             color: var(--text-mid);
             line-height: 1.9;
-            background: white;
+            background: var(--bg-soft);
             border-top: 1px solid var(--border);
         }
 
@@ -982,7 +1015,7 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            nav > .nav-cta { display: none; }
+            .nav-actions .nav-cta { display: none; }
             .hamburger { display: flex; }
             nav { padding: 10px 16px; }
         }
@@ -1010,8 +1043,8 @@
             margin: 40px 24px;
             padding: 40px 24px;
         }
-        .section-wrap.outer-gray { background: #F3F4F6; }
-        .section-wrap.outer-white { background: #FFFFFF; }
+        .section-wrap.outer-gray { background: var(--bg-section); }
+        .section-wrap.outer-white { background: var(--bg); }
 
         .section-inner {
             border-radius: 24px;
@@ -1019,8 +1052,8 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        .section-inner.inner-white { background: #FFFFFF; }
-        .section-inner.inner-gray { background: #F3F4F6; }
+        .section-inner.inner-white { background: var(--bg); }
+        .section-inner.inner-gray { background: var(--bg-section); }
 
         @media (max-width: 768px) {
             .section-wrap { border-radius: 32px; margin: 24px 12px; padding: 24px 12px; }
@@ -1046,7 +1079,7 @@
             display: inline-block;
             margin: 0 auto 12px;
         }
-        .before-label { background: #E5E7EB; color: #6B7280; }
+        .before-label { background: var(--bg-mid); color: var(--text-mid); }
         .after-label { background: var(--primary-soft); color: var(--primary); }
         .compare-arrow {
             font-size: 40px;
@@ -1064,7 +1097,7 @@
             padding: 24px;
             gap: 12px;
         }
-        .before-screen { background: #ffffff; }
+        .before-screen { background: var(--bg-card); }
         .after-screen {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             overflow: hidden;
@@ -1093,11 +1126,11 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 76px;
+            top: 60px;
             left: 16px;
             right: 16px;
             z-index: 999;
-            background: rgba(255,255,255,0.97);
+            background: var(--mobile-menu-bg);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(157,160,175,0.2);
             border-radius: 24px;
@@ -1124,6 +1157,38 @@
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--bg-soft);
+            color: var(--text-mid);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-soft);
+        }
+
+        .theme-toggle .moon-icon { display: none; }
+        .theme-toggle .sun-icon { display: block; }
+
+        [data-theme="dark"] .theme-toggle .sun-icon { display: none; }
+        [data-theme="dark"] .theme-toggle .moon-icon { display: block; }
+
+        @media (max-width: 768px) {
+            .theme-toggle { width: 36px; height: 36px; }
+        }
     </style>
 </head>
 <body>
@@ -1145,12 +1210,23 @@
         <li><a href="#faq">سوالات</a></li>
     </ul>
 
-    <a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
-        </svg>
-        نصب روی کروم
-    </a>
+    <div class="nav-actions">
+        <a href="https://chrome.google.com/webstore" class="nav-cta" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/>
+            </svg>
+            نصب روی کروم
+        </a>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
 
     <div class="hamburger" id="hamburger">
         <span></span>
@@ -1285,22 +1361,22 @@
 <!-- STEPS SECTION (Mach Style) -->
 <section class="section-wrap outer-gray">
     <div class="section-inner inner-white">
-        <h3 class="text-2xl sm:text-4xl font-bold text-center mb-12 text-gray-800">3 قدم تا تب شخصی و شروع کار با جیبی</h3>
+        <h3 class="section-title" style="text-align:center; margin-bottom:48px;">3 قدم تا تب شخصی و شروع کار با جیبی</h3>
         <div class="steps-container">
             <div class="step-box anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🤝</div>
-                <h4 class="text-2xl font-semibold mb-2">1. نصب کن</h4>
-                <p class="text-gray-600 text-lg">افزونه رایگان جیبی را به کروم اضافه کن و صفحه تب جدیدت را آماده کن..</p>
+                <div style="font-size:80px; margin-bottom:16px;">🤝</div>
+                <h3>1. نصب کن</h3>
+                <p>افزونه رایگان جیبی را به کروم اضافه کن و صفحه تب جدیدت را آماده کن.</p>
             </div>
             <div class="step-box anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🖌️</div>
-                <h4 class="text-2xl font-semibold mb-2">2.   شخصی‌سازی کن </h4>
-                <p class="text-gray-600 text-lg">تم، پس‌زمینه، ویجت‌ها و لیست کارهای روزانه‌ت را دقیقاً مطابق سلیقه‌ت بچین..</p>
+                <div style="font-size:80px; margin-bottom:16px;">🖌️</div>
+                <h3>2. شخصی‌سازی کن</h3>
+                <p>تم، پس‌زمینه، ویجت‌ها و لیست کارهای روزانه‌ت را دقیقاً مطابق سلیقه‌ت بچین.</p>
             </div>
             <div class="step-box anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🥳</div>
-                <h4 class="text-2xl font-semibold mb-2">3.  لذت ببر!</h4>
-                <p class="text-gray-600 text-lg"> با داشبورد جیبی سریع به بوکمارک‌ها، تقویم، آب‌وهوا و ابزارهای مورد علاقه‌ت دسترسی داشته باش  !</p>
+                <div style="font-size:80px; margin-bottom:16px;">🥳</div>
+                <h3>3. لذت ببر!</h3>
+                <p>با داشبورد جیبی سریع به بوکمارک‌ها، تقویم، آب‌وهوا و ابزارهای مورد علاقه‌ت دسترسی داشته باش!</p>
             </div>
         </div>
     </div>
@@ -1309,36 +1385,30 @@
 <!-- WHY SECTION (Mach Style) -->
 <section class="section-wrap outer-white">
     <div class="section-inner inner-gray">
-        <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
-            چرا <span class="text-blue-700"> جیبی</span>؟
+        <h3 class="section-title" style="text-align:center; margin-bottom:48px;">
+            چرا <span style="color: var(--primary);">جیبی</span>؟
         </h3>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="why-grid">
             <!-- Card 1 -->
-            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">😎</div>
-                <h4 class="text-2xl font-semibold mb-2 text-blue-600">تجربه آرام و مینیمال  </h4>
-                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    هم‌اتاقی‌ای پیدا کن که با سبک زندگی‌ت، مثل شب‌بیداری یا تمیزی، هماهنگه.
-                </p>
+            <div class="why-card anim">
+                <div class="why-icon">😎</div>
+                <h4>تجربه آرام و مینیمال</h4>
+                <p>هم‌اتاقی‌ای پیدا کن که با سبک زندگی‌ت، مثل شب‌بیداری یا تمیزی، هماهنگه.</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">👀</div>
-                <h4 class="text-2xl font-semibold mb-2 text-blue-600">دسترسی سریع و هوشمند </h4>
-                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    هم‌اتاقی‌ت رو بر اساس دانشگاه، شهر، یا رشته‌ت پیدا کن.
-                </p>
+            <div class="why-card anim">
+                <div class="why-icon">👀</div>
+                <h4>دسترسی سریع و هوشمند</h4>
+                <p>هم‌اتاقی‌ت رو بر اساس دانشگاه، شهر، یا رشته‌ت پیدا کن.</p>
             </div>
 
             <!-- Card 3 -->
-            <div class="text-center p-6 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 anim">
-                <div class="text-8xl sm:text-9xl lg:text-9xl font-bold text-blue-600 mb-4">🔥</div>
-                <h4 class="text-2xl font-semibold mb-2 text-blue-600">ساده  و رایگان</h4>
-                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    تو چند دقیقه و بدون هزینه هم‌اتاقی مناسب رو پیدا کن.
-                </p>
+            <div class="why-card anim">
+                <div class="why-icon">🔥</div>
+                <h4>ساده و رایگان</h4>
+                <p>تو چند دقیقه و بدون هزینه هم‌اتاقی مناسب رو پیدا کن.</p>
             </div>
         </div>
     </div>
@@ -1639,6 +1709,28 @@
 </footer>
 
 <script>
+    // Dark Mode
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        html.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+            html.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
     // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
