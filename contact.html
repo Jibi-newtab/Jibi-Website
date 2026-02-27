@@ -415,12 +415,7 @@
         }
 
         /* ANIM */
-        .anim {
-            opacity: 0; transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .anim.visible { opacity: 1; transform: translateY(0); }
+        .anim { opacity: 1; transform: none; }
 
         /* FOOTER */
         footer {
@@ -744,18 +739,6 @@
             mobileMenu.classList.remove('open');
         });
     });
-
-    // Scroll Animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
 
     // Form Submit
     document.getElementById('contactForm').addEventListener('submit', function(e) {
