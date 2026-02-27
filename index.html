@@ -127,7 +127,7 @@
             transition: all 0.2s;
         }
 
-        .nav-links a:hover { color: var(--primary); background: rgba(91,94,255,0.08); }
+        .nav-links a:hover { color: var(--primary);}
 
         .nav-cta {
             display: inline-flex;
@@ -403,11 +403,6 @@
             text-align: center;
             border: 1.5px dashed var(--border);
             transition: all 0.3s ease;
-        }
-
-        .why-card:hover {
-            border-color: var(--primary);
-            background: var(--primary-soft);
         }
 
         .why-icon {
@@ -1079,6 +1074,7 @@
         }
         .before-label { background: var(--bg-mid); color: var(--text-mid); }
         .after-label { background: var(--primary-soft); color: var(--primary); }
+        .after-label-this { color: var(--primary); }
         .compare-arrow {
             font-size: 40px;
             color: var(--primary);
@@ -1101,8 +1097,8 @@
             overflow: hidden;
         }
         @media (max-width: 768px) {
-            .compare-container { flex-direction: column; gap: 20px; }
-            .compare-arrow { transform: rotate(90deg); }
+            .compare-container { flex-direction: column-reverse; gap: 20px; }
+            .compare-arrow { transform: rotate(-90deg); }
         }
 
         /* ===== HERO MOBILE ===== */
@@ -1201,7 +1197,7 @@
     </a>
 
     <ul class="nav-links">
-        <li><a href="#features">بلاگ</a></li>
+        <li><a href="blog.html">بلاگ</a></li>
         <li><a href="#features">امکانات</a></li>
         <li><a href="#tools">ابزارها</a></li>
         <li><a href="#testimonials">نظرات</a></li>
@@ -1236,7 +1232,7 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="#features">بلاگ</a></li>
+        <li><a href="blog.html">بلاگ</a></li>
         <li><a href="#features">امکانات</a></li>
         <li><a href="#tools">ابزارها</a></li>
         <li><a href="#testimonials">نظرات</a></li>
@@ -1264,7 +1260,7 @@
     <span class="hero-emoji" style="font-size:44px; top:72%; left:14%; animation-duration:9s; animation-delay:4s; opacity:0.6;">🎁</span>
     <span class="hero-emoji" style="font-size:38px; top:36%; left:15%; animation-duration:15s; animation-delay:2.5s; opacity:0.45;">🌿</span>
 
-    <h1 style="font-size: clamp(36px, 2.6vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
+    <h1 style="font-size: clamp(36px, 2.4vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
         <span style="color: var(--primary);">جیبی</span>، تب
         <div class="rotating-wrapper" style="width: 300px; height: 400px;">
             <span class="word">شخصی 🌿</span>
@@ -1303,14 +1299,16 @@
     <div class="section-inner inner-gray">
         <div class="section-header anim">
             <span class="detail-tag">✨ تبدیل با یه کلیک</span>
-            <h2 class="section-title">از این… به اون</h2>
+            <h2 class="section-title">از این… 
+                <span class="after-label-this">به اون</span>
+            </h2>
             <p class="section-subtitle">تب جدیدت هنوز یه صفحه خالیه؟ با جیبی فرق اش رو ببین</p>
         </div>
 
         <div class="compare-container anim">
             <div class="compare-box">
                 <div style="text-align:center;">
-                    <span class="compare-label before-label">با جیبی ✨</span>
+                    <span class="compare-label before-label after-label">با جیبی ✨</span>
                 </div>
                 <div class="mockup-browser">
                     <img src="src/jibi.png" alt="">
@@ -1321,7 +1319,7 @@
 
             <div class="compare-box">
                 <div style="text-align:center;">
-                    <span class="compare-label after-label">قبل از جیبی</span>
+                    <span class="compare-label">قبل از جیبی</span>
                 </div>
                 <div class="mockup-browser">
                     <img src="src/Google.png" alt="">
@@ -1422,7 +1420,7 @@
             <div class="detail-text anim">
                 <span class="detail-tag">حریم خصوصی</span>
                 <h2>داده‌هات<br>فقط پیش خودته </h2>
-                <p>جيبي کاملاً آفلاین کار می‌کنه. هیچ اطلاعاتی به سرور ارسال نمی‌شه و هیچ حسابی لازم نیست.</p>
+                <p>جیبی  کاملاً آفلاین کار می‌کنه. هیچ اطلاعاتی به سرور ارسال نمی‌شه و هیچ حسابی لازم نیست.</p>
                 <div class="feature-list">
                     <span class="feature-chip">ذخیره محلی</span>
                     <span class="feature-chip">بدون سرور</span>
@@ -1510,7 +1508,7 @@
         </div>
         <div class="testimonial-card anim">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">به عنوان یه دولوپر و تریدر، خیلی مهمه که ابزارام دم دست باشن. جيبي این کار رو کرده. قیمت ارز و لینک‌های گیت هاب همیشه جلوی چشمامه.</p>
+            <p class="testimonial-text">به عنوان یه دولوپر و تریدر، خیلی مهمه که ابزارام دم دست باشن. جیبی  این کار رو کرده. قیمت ارز و لینک‌های گیت هاب همیشه جلوی چشمامه.</p>
             <div class="testimonial-author">
                 <div class="author-avatar">ع</div>
                 <div class="author-info"><h5>علی کریمی</h5><p>توسعه‌دهنده فرانت‌اند</p></div>
@@ -1540,11 +1538,11 @@
     <div class="faq-container">
         <div class="faq-item anim">
             <div class="faq-question">
-                جيبي چیه و چیکار میکنه؟
+                جیبی  چیه و چیکار میکنه؟
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                جيبي یه افزونه مرورگره که صفحه تب جدیدت رو تبدیل میکنه به یه فضای کاری هوشمند. با امکاناتی مثل جستجوی پیشرفته، آب و هوا، تودولیست، بوکمارک، تقویم شمسی و خیلی چیزهای دیگه.
+                جیبی  یه افزونه مرورگره که صفحه تب جدیدت رو تبدیل میکنه به یه فضای کاری هوشمند. با امکاناتی مثل جستجوی پیشرفته، آب و هوا، تودولیست، بوکمارک، تقویم شمسی و خیلی چیزهای دیگه.
             </div>
         </div>
         <div class="faq-item anim">
@@ -1624,7 +1622,7 @@
                     <div class="footer-logo-icon">
                         <img src="icon.png" alt="">
                     </div>
-                    <span class="footer-brand-name">جيبي</span>
+                    <span class="footer-brand-name">جیبی </span>
                 </div>
                 <p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان، متن‌باز و محافظ حریم خصوصی.</p>
             </div>
@@ -1637,15 +1635,13 @@
             </div>
             <div class="footer-col">
                 <h4>پشتیبانی</h4>
-                <a href="#">راهنما</a>
                 <a href="#">گزارش باگ</a>
                 <a href="#">درخواست قابلیت</a>
-                <a href="#">تماس با ما</a>
+                <a href="contact.html">ارتباط با ما </a>
             </div>
             <div class="footer-col">
                 <h4>شبکه‌های اجتماعی</h4>
                 <a href="#">اینستاگرام</a>
-                <a href="#">توییتر / X</a>
                 <a href="#">تلگرام</a>
                 <a href="#">لینکدین</a>
             </div>
