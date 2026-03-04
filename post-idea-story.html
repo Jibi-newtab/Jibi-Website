@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چطور ایده جیبی به ذهنمون رسید؟ – بلاگ جیبی</title>
+    <link rel="icon" type="image/png" href="src/icon128.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        :root {
+            --primary: #5B5EFF; --primary-soft: #EEEEFF; --accent: #FF5C8D; --green: #22C97C;
+            --bg: #FFFFFF; --bg-soft: #F7F7FC; --bg-mid: #F0F0F8; --bg-section: #F3F4F6;
+            --bg-card: #FFFFFF; --text: #1A1A2E; --text-mid: #4A4A6A; --text-light: #8888AA;
+            --border: #E8E8F0; --nav-bg: rgba(255,255,255,0.92); --mobile-menu-bg: rgba(255,255,255,0.97);
+            --shadow: 0 4px 24px rgba(91,94,255,0.08); --shadow-lg: 0 20px 60px rgba(91,94,255,0.14);
+            --radius: 20px; --radius-sm: 12px;
+        }
+        [data-theme="dark"] {
+            --primary: #7B7EFF; --primary-soft: #1E1E3F; --bg: #0F0F1A; --bg-soft: #161625;
+            --bg-mid: #1E1E33; --bg-section: #141422; --bg-card: #1A1A2E; --text: #F0F0FF;
+            --text-mid: #A0A0C0; --text-light: #6060A0; --border: #2A2A45;
+            --nav-bg: rgba(15,15,26,0.92); --mobile-menu-bg: rgba(20,20,40,0.97);
+            --shadow: 0 4px 24px rgba(91,94,255,0.18); --shadow-lg: 0 20px 60px rgba(91,94,255,0.25);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Vazirmatn', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.7; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 800; font-size: 18px; }
+        .nav-logo-icon { width: 36px; height: 36px; border-radius: 11px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 16px; }
+        .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+        .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 18px; font-weight: 500; padding: 8px 16px; border-radius: 999px; transition: all 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary);}
+        .nav-cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(180deg, #6B9EFF 0%, var(--primary) 100%); color: white !important; padding: 10px 20px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 14px !important; text-decoration: none; transition: all 0.2s !important; box-shadow: 0 4px 16px rgba(91,94,255,0.35); }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,94,255,0.45); }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+        .theme-toggle { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--bg-soft); color: var(--text-mid); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+        .theme-toggle:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+        .theme-toggle .moon-icon { display: none; }
+        .theme-toggle .sun-icon { display: block; }
+        [data-theme="dark"] .theme-toggle .sun-icon { display: none; }
+        [data-theme="dark"] .theme-toggle .moon-icon { display: block; }
+        .mobile-menu { display: none; position: fixed; top: 60px; left: 16px; right: 16px; z-index: 999; background: var(--mobile-menu-bg); backdrop-filter: blur(20px); border: 1px solid rgba(157,160,175,0.2); border-radius: 24px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); flex-direction: column; gap: 4px; }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+        .mobile-menu ul a { display: block; padding: 12px 16px; color: var(--text-mid); text-decoration: none; font-size: 16px; font-weight: 500; border-radius: 12px; transition: all 0.2s; }
+        .mobile-menu ul a:hover { background: rgba(91,94,255,0.08); color: var(--primary); }
+        .mobile-menu .nav-cta { margin-top: 8px; justify-content: center; }
+        .hamburger span { transition: all 0.25s; transform-origin: center; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-actions .nav-cta { display: none; } .hamburger { display: flex; } nav { padding: 10px 16px; } .theme-toggle { width: 36px; height: 36px; } }
+        .post-hero { padding: 88px 24px 0; background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%); position: relative; overflow: hidden; }
+        .post-hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(91,94,255,0.07) 0%, transparent 70%); pointer-events: none; }
+        .post-hero-inner { max-width: 780px; margin: 0 auto; padding-bottom: 24px; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-light); margin-bottom: 24px; flex-wrap: wrap; }
+        .breadcrumb a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb .sep { color: var(--border); }
+        .breadcrumb .current { color: var(--text-mid); }
+        .post-category { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-soft); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 20px; }
+        .post-title { font-size: clamp(26px, 4vw, 44px); font-weight: 900; line-height: 1.4; margin-bottom: 20px; color: var(--text); }
+        .post-subtitle { font-size: 18px; color: var(--text-mid); line-height: 1.8; margin-bottom: 32px; }
+        .post-meta-bar { display: flex; align-items: center; gap: 20px; padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+        .author-info { display: flex; align-items: center; gap: 12px; }
+        .author-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .author-name { font-weight: 700; font-size: 14px; color: var(--text); }
+        .author-role { font-size: 12px; color: var(--text-light); }
+        .post-stats { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text-light); margin-right: auto; }
+        .post-stats span { display: flex; align-items: center; gap: 4px; }
+        .post-cover { max-width: 860px; margin: 0 auto; height: 360px; border-radius: 24px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 50%, #667eea 100%); display: flex; align-items: center; justify-content: center; font-size: 100px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); transform: translateY(32px); }
+        .post-cover::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.12); }
+        .post-cover span { position: relative; z-index: 1; }
+        @media (max-width: 768px) { .post-cover { height: 220px; font-size: 64px; border-radius: 16px; } }
+        .post-layout { max-width: 1100px; margin: 0 auto; padding: 80px 24px 60px; display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+        @media (max-width: 900px) { .post-layout { grid-template-columns: 1fr; gap: 40px; } .post-sidebar { order: 2; } }
+        .post-content { font-size: 17px; line-height: 1.95; color: var(--text-mid); }
+        .post-content h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 900; color: var(--text); margin: 48px 0 16px; line-height: 1.4; }
+        .post-content h3 { font-size: 20px; font-weight: 800; color: var(--text); margin: 32px 0 12px; }
+        .post-content p { margin-bottom: 20px; }
+        .post-content strong { color: var(--text); font-weight: 700; }
+        .post-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+        .post-content ul, .post-content ol { margin: 0 0 20px 0; padding-right: 24px; }
+        .post-content li { margin-bottom: 10px; }
+        .callout { background: var(--primary-soft); border-right: 4px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin: 28px 0; color: var(--text-mid); font-size: 15px; }
+        .callout strong { color: var(--primary); }
+        .step-block { display: flex; gap: 20px; align-items: flex-start; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px 24px; margin: 16px 0; }
+        .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+        .step-text h4 { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+        .step-text p { font-size: 14px; color: var(--text-mid); margin: 0; }
+        .post-img { width: 100%; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--bg-mid) 0%, var(--bg-soft) 100%); border: 1px solid var(--border); height: 240px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin: 28px 0; overflow: hidden; }
+        .post-img img { width: 100%; height: 100%; object-fit: cover; }
+        .post-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
+        .tag { padding: 6px 16px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); font-size: 13px; color: var(--text-mid); text-decoration: none; transition: all 0.2s; }
+        .tag:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+        .share-box { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; margin-top: 40px; }
+        .share-box p { font-size: 14px; color: var(--text-mid); margin-bottom: 16px; font-weight: 600; }
+        .share-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .share-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); font-size: 13px; font-weight: 600; color: var(--text-mid); text-decoration: none; cursor: pointer; font-family: 'Vazirmatn', sans-serif; transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+        .post-sidebar { position: sticky; top: 90px; }
+        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+        .sidebar-card h4 { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { font-size: 13px; color: var(--text-mid); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; line-height: 1.5; }
+        .toc-list a::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: background 0.2s; }
+        .toc-list a:hover { color: var(--primary); }
+        .toc-list a:hover::before { background: var(--primary); }
+        .related-post { display: flex; gap: 12px; align-items: flex-start; text-decoration: none; color: inherit; padding: 10px 0; border-bottom: 1px solid var(--border); transition: all 0.2s; }
+        .related-post:last-child { border-bottom: none; padding-bottom: 0; }
+        .related-post:hover .related-title { color: var(--primary); }
+        .related-thumb { width: 56px; height: 56px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .related-thumb.g1 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .related-thumb.g2 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .related-thumb.g3 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .related-title { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 4px; transition: color 0.2s; }
+        .related-date { font-size: 11px; color: var(--text-light); }
+        .sidebar-cta { background: linear-gradient(135deg, var(--primary) 0%, #764ba2 100%); border-radius: var(--radius); padding: 24px; text-align: center; color: white; }
+        .sidebar-cta .cta-icon { font-size: 40px; margin-bottom: 12px; }
+        .sidebar-cta h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+        .sidebar-cta p { font-size: 13px; opacity: 0.85; margin-bottom: 16px; line-height: 1.6; }
+        .sidebar-cta a { display: block; background: white; color: var(--primary); font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 999px; text-decoration: none; transition: all 0.2s; }
+        .sidebar-cta a:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+        .anim { opacity: 1; transform: none; }
+        footer { background: linear-gradient(180deg, #1a1a2e 0%, #0a0a14 100%); border-radius: 36px 36px 0 0; padding: 80px 40px 40px; color: white; position: relative; overflow: hidden; }
+        .footer-snowflakes { position: absolute; inset: 0; pointer-events: none; }
+        .footer-snowflake { position: absolute; color: rgba(255,255,255,0.4); font-size: 10px; animation: snowfall-footer linear infinite; }
+        @keyframes snowfall-footer { 0% { transform: translateY(-20px) rotate(0deg); opacity: 0.8; } 100% { transform: translateY(400px) rotate(360deg); opacity: 0; } }
+        .footer-snowflake:nth-child(1)  { left: 8%;  animation-duration: 9s;  animation-delay: 0s;   font-size: 8px; }
+        .footer-snowflake:nth-child(2)  { left: 18%; animation-duration: 7s;  animation-delay: 1.5s; font-size: 12px; }
+        .footer-snowflake:nth-child(3)  { left: 28%; animation-duration: 10s; animation-delay: 0.3s; font-size: 7px; }
+        .footer-snowflake:nth-child(4)  { left: 42%; animation-duration: 8s;  animation-delay: 2.2s; font-size: 10px; }
+        .footer-snowflake:nth-child(5)  { left: 52%; animation-duration: 12s; animation-delay: 0.8s; font-size: 9px; }
+        .footer-snowflake:nth-child(6)  { left: 62%; animation-duration: 9s;  animation-delay: 1.2s; font-size: 11px; }
+        .footer-snowflake:nth-child(7)  { left: 72%; animation-duration: 7s;  animation-delay: 0.5s; font-size: 8px; }
+        .footer-snowflake:nth-child(8)  { left: 82%; animation-duration: 11s; animation-delay: 2.5s; font-size: 10px; }
+        .footer-snowflake:nth-child(9)  { left: 90%; animation-duration: 8s;  animation-delay: 1.8s; font-size: 9px; }
+        .footer-content { max-width: 1100px; margin: 0 auto; position: relative; z-index: 10; }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+        @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
+        .footer-brand-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .footer-logo-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 18px; }
+        .footer-brand-name { font-size: 22px; font-weight: 800; color: white; }
+        .footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 280px; }
+        .footer-col h4 { font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: color 0.2s; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; align-items: center; justify-content: center; }
+        .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); text-align: center; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><img src="icon.png" alt=""></div><span>جیبی</span></a>
+    <ul class="nav-links"><li><a href="blog.html" class="active">بلاگ</a></li><li><a href="index.html#features">امکانات</a></li><li><a href="index.html#tools">ابزارها</a></li><li><a href="index.html#testimonials">نظرات</a></li><li><a href="index.html#faq">سوالات</a></li></ul>
+    <div class="nav-actions">
+        <a href="https://chromewebstore.google.com/detail/jibi-%E2%80%93-custom-new-tab-pro/joifpkieabcifkikfhngjcjoochaloga" class="nav-cta" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-.53 14.03a.75.75 0 001.06 0l3-3a.75.75 0 10-1.06-1.06l-1.72 1.72V8.25a.75.75 0 00-1.5 0v5.69l-1.72-1.72a.75.75 0 00-1.06 1.06l3 3z" clip-rule="evenodd"/></svg>نصب روی کروم</a>
+        <button class="theme-toggle" id="themeToggle"><svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg><svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <ul><li><a href="blog.html">بلاگ</a></li><li><a href="index.html#features">امکانات</a></li><li><a href="index.html#tools">ابزارها</a></li><li><a href="index.html#testimonials">نظرات</a></li><li><a href="index.html#faq">سوالات</a></li></ul>
+    <a href="https://chromewebstore.google.com/detail/jibi-%E2%80%93-custom-new-tab-pro/joifpkieabcifkikfhngjcjoochaloga" class="nav-cta" target="_blank">نصب روی کروم</a>
+</div>
+
+<div class="post-hero">
+    <div class="post-hero-inner">
+        <nav class="breadcrumb"><a href="index.html">خانه</a><span class="sep">/</span><a href="blog.html">بلاگ</a><span class="sep">/</span><span class="current">پشت صحنه</span></nav>
+        <div class="post-category">🎬 پشت صحنه</div>
+        <h1 class="post-title">چطور ایده جیبی به ذهنمون رسید؟</h1>
+        <p class="post-subtitle">داستان شروع جیبی، از یه ایده ساده تا یه افزونه که هر روز هزاران نفر ازش استفاده می‌کنن.</p>
+        <div class="post-meta-bar">
+            <div class="author-info"><div class="author-avatar"><img src="icon.png" alt=""></div><div><div class="author-name">تیم جیبی</div><div class="author-role">نویسنده بلاگ</div></div></div>
+            <div class="post-stats"><span>📅 ۱ اسفند ۱۴۰۳</span><span>⏱ ۶ دقیقه مطالعه</span></div>
+        </div>
+    </div>
+    <div class="post-cover"><span>💭</span></div>
+</div>
+
+<div class="post-layout">
+    <article class="post-content anim">
+        <h2 id="intro">همه چی از یه مشکل ساده شروع شد</h2>
+        <p>یه روز صبح نشستم پای کامپیوتر. تب جدید باز کردم و یه صفحه خالی سفید دیدم. یه لحظه فکر کردم: <strong>«چرا این فضا داره هدر میره؟»</strong></p>
+        <p>همون لحظه بود که ایده اولیه جیبی شکل گرفت. می‌خواستم یه چیزی داشته باشم که تب جدیدم رو تبدیل به یه داشبورد مفید کنه.</p>
+
+        <h2 id="problem">مشکل چی بود؟</h2>
+        <p>تب جدید مرورگرها معمولاً یه چیزای بی‌فایده نشون می‌دن: لوگوی گوگل، یه سرچ باکس، یا حتی صفحه کاملاً خالی. اما ما هر روز صدها بار تب جدید باز می‌کنیم!</p>
+        <div class="callout"><strong>آمار جالب:</strong> یه کاربر متوسط روزانه ۲۰ تا ۵۰ بار تب جدید باز می‌کنه. یعنی سالانه بیش از ۱۰۰۰۰ بار!</div>
+
+        <h2 id="solution">راه‌حل: تب جدید هوشمند</h2>
+        <p>به جای صفحه خالی، چرا یه داشبورد شخصی نداشته باشیم که:</p>
+        <ul>
+            <li>بوکمارک‌های پرکاربردمون یه کلیکی باشن</li>
+            <li>تقویم و ساعت رو ببینیم</li>
+            <li>کارهای امروز رو لیست کنیم</li>
+            <li>ظاهرش رو خودمون طراحی کنیم</li>
+        </ul>
+
+        <h2 id="name">چرا اسمش رو «جیبی» گذاشتیم؟</h2>
+        <p>جیبی یه اسم کوتاه، دوست‌داشتنی و آشناست. همه ما «جیب» داریم و جیبی یه چیزیه که همیشه همراهمونه — دقیقاً مثل این افزونه که هر بار تب جدید باز می‌کنیم، اونجاست.</p>
+
+        <h2 id="build">ساخت اولین نسخه</h2>
+        <p>اولین نسخه جیبی خیلی ساده بود:</p>
+        <ul>
+            <li>فقط ۴ تا بوکمارک</li>
+            <li>یه ساعت ساده</li>
+            <li>یه بک‌گرادن ثابت</li>
+        </ul>
+        <p>اما همین سادگی باعث شد خیلی‌ها بپسندنش. کم کم امکانات اضافه شد و جیبی به شکل امروزی در اومد.</p>
+
+        <h2 id="users">واکنش کاربرا</h2>
+        <p>اولین کاربر جیبی خودم بودم. بعد دوستام. بعد دوستای دوستام. وقتی دیدیم استقبال خوبه، تصمیم گرفتیم عمومی‌ش کنیم.</p>
+        <p>الان هزاران نفر هر روز از جیبی استفاده می‌کنن و این بهترین حس ممکنه!</p>
+
+        <h2 id="future">آینده جیبی</h2>
+        <p>هنوز راه زیادی داریم. برنامه‌مون اینه که:</p>
+        <ul>
+            <li>ویجت‌های بیشتری اضافه کنیم</li>
+            <li>همگام‌سازی بین دستگاه‌ها رو بهتر کنیم</li>
+            <li>نسخه موبایل هم بسازیم</li>
+            <li>همیشه رایگان و متن‌باز بمونیم</li>
+        </ul>
+
+        <hr class="post-divider">
+        <p>ممنون که داستان جیبی رو خوندی. امیدواریم از استفاده‌ش لذت ببری!</p>
+
+        <div class="post-tags">
+            <a href="#" class="tag"># داستان</a><a href="#" class="tag"># استارتاپ</a><a href="#" class="tag"># جیبی</a><a href="#" class="tag"># ایده</a>
+        </div>
+
+        <div class="share-box">
+            <p>این مطلب مفید بود؟ به اشتراک بذار</p>
+            <div class="share-btns"><button class="share-btn" onclick="copyLink()">🔗 کپی لینک</button><a class="share-btn" href="#">✈️ تلگرام</a><a class="share-btn" href="#">📸 اینستاگرام</a></div>
+            <p id="copiedMsg" style="display:none; margin-top:10px; color:var(--primary); font-size:13px; font-weight:700;">لینک کپی شد ✓</p>
+        </div>
+    </article>
+
+    <aside class="post-sidebar">
+        <div class="sidebar-card anim">
+            <h4>📋 فهرست مطالب</h4>
+            <ul class="toc-list">
+                <li><a href="#intro">همه چی از یه مشکل ساده شروع شد</a></li><li><a href="#problem">مشکل چی بود؟</a></li><li><a href="#solution">راه‌حل: تب جدید هوشمند</a></li><li><a href="#name">چرا اسمش رو «جیبی» گذاشتیم؟</a></li><li><a href="#build">ساخت اولین نسخه</a></li><li><a href="#users">واکنش کاربرا</a></li><li><a href="#future">آینده جیبی</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-cta anim"><div class="cta-icon">🚀</div><h4>هنوز جیبی نصب نکردی؟</h4><p>رایگان، آفلاین و بدون نیاز به ثبت‌نام</p><a href="https://chromewebstore.google.com/detail/jibi-%E2%80%93-custom-new-tab-pro/joifpkieabcifkikfhngjcjoochaloga" target="_blank">همین الان نصب کن</a></div>
+        <div class="sidebar-card anim">
+            <h4>📚 مطالب مرتبط</h4>
+            <a href="post-update-2.html" class="related-post"><div class="related-thumb g1"><span>✨</span></div><div><div class="related-title">جیبی ۲.۰ — چه چیزهای جدیدی اضافه شد؟</div><div class="related-date">۵ اسفند ۱۴۰۳</div></div></a>
+            <a href="post-privacy.html" class="related-post"><div class="related-thumb g2"><span>🛡️</span></div><div><div class="related-title">چرا جیبی هیچ داده‌ای جمع‌آوری نمی‌کنه؟</div><div class="related-date">۱۵ بهمن ۱۴۰۳</div></div></a>
+            <a href="post-speed-tips.html" class="related-post"><div class="related-thumb g3"><span>⚡</span></div><div><div class="related-title">۵ ترفند برای سرعت بیشتر در مرورگر</div><div class="related-date">۱۰ اسفند ۱۴۰۳</div></div></a>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div class="footer-snowflakes"><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div><div class="footer-snowflake">❄</div></div>
+    <div class="footer-content">
+        <div class="footer-top">
+            <div><div class="footer-brand-logo"><div class="footer-logo-icon"><img src="icon.png" alt=""></div><span class="footer-brand-name">جیبی</span></div><p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان، متن‌باز و محافظ حریم خصوصی.</p></div>
+            <div class="footer-col"><h4>محصول</h4><a href="index.html#features">امکانات</a><a href="index.html#tools">ابزارها</a><a href="index.html#faq">سوالات</a><a href="https://chromewebstore.google.com/detail/jibi-%E2%80%93-custom-new-tab-pro/joifpkieabcifkikfhngjcjoochaloga" target="_blank">دانلود</a></div>
+            <div class="footer-col"><h4>پشتیبانی</h4><a href="#">گزارش باگ</a><a href="#">درخواست قابلیت</a><a href="contact.html">ارتباط با ما</a></div>
+            <div class="footer-col"><h4>شبکه‌های اجتماعی</h4><a href="#">اینستاگرام</a><a href="#">تلگرام</a><a href="#">لینکدین</a></div>
+        </div>
+        <div class="footer-bottom"><span class="footer-copy">ساخته شده با ❤️ برای تجربه‌ای بهتر</span></div>
+    </div>
+</footer>
+
+<script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'dark') html.setAttribute('data-theme', 'dark');
+    themeToggle.addEventListener('click', () => { const isDark = html.getAttribute('data-theme') === 'dark'; if (isDark) { html.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); } else { html.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); } });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('open'); });
+    mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); }); });
+    function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { document.getElementById('copiedMsg').style.display = 'block'; setTimeout(() => document.getElementById('copiedMsg').style.display = 'none', 2500); }); }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href !== '#') { e.preventDefault(); const target = document.querySelector(href); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+</script>
+
+</body>
+</html>
