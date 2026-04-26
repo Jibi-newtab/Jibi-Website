@@ -1,0 +1,10 @@
+node_modules/
+.git/
+.claude/
+Sample/
+deploy.sh
+docker-compose.yml
+Dockerfile
+nginx.conf
+nginx-ssl.conf
+.gitignore
