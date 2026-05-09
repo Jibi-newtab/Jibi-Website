@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# OS / system
+*.log
+*.tmp
+.cache/
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Claude assistants
+.claude/
+
+# Build / scratch
+Sample/
+dist/
+build/
+
+# Local certificates (production certs live in Docker volumes, never on disk)
+*.pem
+*.crt
+*.key

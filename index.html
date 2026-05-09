@@ -3,24 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جیبی – تب جدید هوشمند</title>
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+    <title>جیبی</title>
     <meta name="description" content="جیبی، افزونه رایگان مرورگر کروم برای شخصی‌سازی تب جدید. تم‌های زیبا، ابزارهای کاربردی، بوکمارک‌های سریع و تقویم شمسی.">
     <meta name="keywords" content="جیبی, تب جدید, افزونه کروم, new tab, chrome extension, شخصی‌سازی, تقویم شمسی">
     <link rel="canonical" href="https://jibitab.ir/">
-    <link rel="icon" type="image/png" href="assets/images/icon128.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta property="og:title" content="جیبی – تب جدید هوشمند">
+    <link rel="icon" type="image/webp" href="assets/images/icon128.webp">
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/iranyekanx-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/iranyekanx-bold.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/fonts/iranyekan.css">
+    <meta property="og:title" content="جیبی">
     <meta property="og:description" content="شخصی‌سازی کامل تب جدید مرورگر کروم با تم‌های زیبا، ابزارهای کاربردی و بوکمارک‌های سریع">
-    <meta property="og:image" content="https://jibitab.ir/assets/images/jibi.png">
+    <meta property="og:image" content="https://jibitab.ir/assets/images/jibi.webp">
     <meta property="og:url" content="https://jibitab.ir/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="جیبی – تب جدید هوشمند">
+    <meta name="twitter:title" content="جیبی">
     <meta name="twitter:description" content="شخصی‌سازی کامل تب جدید مرورگر کروم">
-    <meta name="twitter:image" content="https://jibitab.ir/assets/images/jibi.png">
+    <meta name="twitter:image" content="https://jibitab.ir/assets/images/jibi.webp">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://jibitab.ir/#organization",
+          "name": "جیبی",
+          "url": "https://jibitab.ir/",
+          "logo": "https://jibitab.ir/assets/images/icon.webp"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jibitab.ir/#website",
+          "url": "https://jibitab.ir/",
+          "name": "جیبی",
+          "inLanguage": "fa-IR",
+          "publisher": { "@id": "https://jibitab.ir/#organization" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "جیبی - تب جدید هوشمند",
+          "operatingSystem": "Chrome",
+          "applicationCategory": "BrowserApplication",
+          "inLanguage": "fa-IR",
+          "url": "https://jibitab.ir/",
+          "image": "https://jibitab.ir/assets/images/jibi.webp",
+          "description": "افزونه رایگان کروم برای شخصی‌سازی تب جدید با تم‌ها، ابزارها، بوکمارک سریع و تقویم شمسی.",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IRR" },
+          "publisher": { "@id": "https://jibitab.ir/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "جیبی چیه و چیکار میکنه؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "جیبی یه افزونه مرورگره که صفحه تب جدیدت رو تبدیل میکنه به یه فضای کاری هوشمند. با امکاناتی مثل جستجوی پیشرفته، آب و هوا، تودولیست، بوکمارک، تقویم شمسی و خیلی چیزهای دیگه." }
+            },
+            {
+              "@type": "Question",
+              "name": "روی چه مرورگرهایی کار میکنه؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "فعلا فقط روی گوگل کروم کار میکنه. نسخه فایرفاکس هم به زودی منتشر میشه." }
+            },
+            {
+              "@type": "Question",
+              "name": "واقعاً رایگانه؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "آره، کاملا رایگان. هیچ نسخه پولی یا پریمیومی نداریم. همه امکانات برای همه کاملاً آزاده." }
+            },
+            {
+              "@type": "Question",
+              "name": "می‌تونم ظاهرش رو کامل عوض کنم؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "آره، از تم و رنگ تا پس‌زمینه و چیدمان ویجت‌ها؛ همه چیز دست خودته." }
+            },
+            {
+              "@type": "Question",
+              "name": "اطلاعاتم امنه؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "بله، هیچ اطلاعاتی جمع‌آوری نمیشه. همه چیز محلیه و توی مرورگر خودت ذخیره میشه. ما دسترسی به هیچ چیزی نداریم و نمی‌خوایم هم داشته باشیم." }
+            },
+            {
+              "@type": "Question",
+              "name": "چطور میتونم تنظیماتم رو بکاپ بگیرم؟",
+              "acceptedAnswer": { "@type": "Answer", "text": "توی منوی تنظیمات، بخش Backup & Restore داریم. با یه کلیک همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌هات رو به صورت فایل JSON ذخیره کن و بعدا بازگردون." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">رفتن به محتوای اصلی</a>
@@ -29,7 +100,7 @@
 <nav>
     <a href="#" class="nav-logo">
         <div class="nav-logo-icon">
-          <img src="assets/images/icon.png" alt="لوگوی جیبی">
+          <img src="assets/images/icon.webp" alt="لوگوی جیبی" width="32" height="32" decoding="async">
         </div>
         <span>جیبی</span>
     </a>
@@ -100,9 +171,9 @@
     <span class="hero-emoji" style="font-size:44px; top:72%; left:14%; animation-duration:9s; animation-delay:4s; opacity:0.6;">🎁</span>
     <span class="hero-emoji" style="font-size:38px; top:36%; left:15%; animation-duration:15s; animation-delay:2.5s; opacity:0.45;">🌿</span>
 
-    <h1 style="font-size: clamp(36px, 2.4vw, 64px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
+    <h1 style="font-size: clamp(28px, 3.5vw, 44px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1px;">
         <span style="color: var(--primary);">جیبی</span>، تب
-        <div class="rotating-wrapper" style="width: 300px; height: 400px;">
+        <span class="rotating-wrapper" style="width: 300px; height: 400px;" aria-hidden="true">
             <span class="word">شخصی 🌿</span>
             <span class="word">کارآمد 💼</span>
             <span class="word">ایمن 🔒</span>
@@ -120,7 +191,8 @@
             <span class="word"> روان 🌊</span>
             <span class="word"> جمع‌وجور 📦</span>
             <span class="word"> چشم‌نواز 👀✨</span>
-        </div>
+        </span>
+        <span class="visually-hidden">شخصی و هوشمند</span>
         برای تو
     </h1>
 
@@ -151,7 +223,7 @@
                     <span class="compare-label before-label after-label">با جیبی ✨</span>
                 </div>
                 <div class="mockup-browser">
-                    <img src="assets/images/jibi.png" alt="اسکرین‌شات تب جدید جیبی" loading="lazy">
+                    <img src="assets/images/jibi.webp" alt="اسکرین‌شات تب جدید جیبی" width="800" height="500" loading="eager" fetchpriority="high" decoding="async">
                 </div>
             </div>
 
@@ -162,7 +234,7 @@
                     <span class="compare-label">قبل از جیبی</span>
                 </div>
                 <div class="mockup-browser">
-                    <img src="assets/images/Google.png" alt="صفحه تب جدید پیش‌فرض گوگل" loading="lazy">
+                    <img src="assets/images/Google.webp" alt="صفحه تب جدید پیش‌فرض گوگل" width="800" height="500" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -251,7 +323,7 @@
                         <div class="mockup-dot"></div>
                         <div class="mockup-dot"></div>
                     </div>
-                    <img src="assets/images/1.png" alt="قابلیت شخصی‌سازی جیبی" loading="lazy">
+                    <img src="assets/images/1.webp" alt="قابلیت شخصی‌سازی جیبی" width="800" height="500" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -298,7 +370,7 @@
                         <div class="mockup-dot"></div>
                         <div class="mockup-dot"></div>
                     </div>
-                    <img src="assets/images/2.png" alt="ویجت‌ها و ابزارهای جیبی" loading="lazy">
+                    <img src="assets/images/2.webp" alt="ویجت‌ها و ابزارهای جیبی" width="800" height="500" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -317,7 +389,7 @@
     <div class="tools-grid">
         <div class="tool-card anim"><span class="tool-icon">🎨</span><h4>طراحی مینیمال و مدرن</h4><p>ظاهری تمیز و دلنشین</p></div>
         <div class="tool-card anim"><span class="tool-icon">🖌️</span><h4>شخصی‌سازی کامل</h4><p>تم و پس‌زمینه دلخواه</p></div>
-        <div class="tool-card anim"><span class="tool-icon">✅</span><h4>لیست کارهای روزانه</h4><p>To-Do List</p></div>
+        <div class="tool-card anim"><span class="tool-icon">✅</span><h4>لیست کارهای روزانه</h4><p lang="en">To-Do List</p></div>
         <div class="tool-card anim"><span class="tool-icon">🔖</span><h4>بوکمارک‌ها</h4><p>دسترسی سریع به سایت‌ها</p></div>
         <div class="tool-card anim"><span class="tool-icon">☀️</span><h4>ویجت آب‌وهوا</h4><p>وضعیت هوا به صورت زنده</p></div>
         <div class="tool-card anim"><span class="tool-icon">🎶</span><h4>پلیر موسیقی</h4><p>مینیمال برای تغییر حال‌وهوا</p></div>
@@ -427,7 +499,7 @@
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                توی منوی تنظیمات، بخش Backup & Restore داریم. با یه کلیک همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌هات رو به صورت فایل JSON ذخیره کن و بعدا بازگردون.
+                توی منوی تنظیمات، بخش <span lang="en">Backup &amp; Restore</span> داریم. با یه کلیک همه تنظیمات، بوکمارک‌ها و شخصی‌سازی‌هات رو به صورت فایل <span lang="en">JSON</span> ذخیره کن و بعدا بازگردون.
             </div>
         </div>
     </div>
@@ -471,7 +543,7 @@
             <div>
                 <div class="footer-brand-logo">
                     <div class="footer-logo-icon">
-                        <img src="assets/images/icon.png" alt="لوگوی جیبی">
+                        <img src="assets/images/icon.webp" alt="لوگوی جیبی" width="32" height="32" loading="lazy" decoding="async">
                     </div>
                     <span class="footer-brand-name">جیبی </span>
                 </div>
@@ -499,7 +571,8 @@
         </div>
 
         <div class="footer-bottom">
-            <span class="footer-copy">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
+            <span class="footer-tagline">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
+            <span class="footer-copy">© ۱۴۰۴ جیبی. تمامی حقوق محفوظ است.</span>
         </div>
     </div>
 </footer>

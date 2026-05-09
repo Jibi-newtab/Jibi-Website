@@ -1,46 +1,91 @@
 # Jibi - Official Website
 
-Official website for Jibi (Custom New Tab Pro) Chrome extension.
+Official website for [Jibi](https://jibitab.ir) — a free Chrome extension for customizing the new tab page.
 
 ## About
 
-Jibi is a Chrome extension for customizing the new tab page with features like:
-- Random backgrounds from Unsplash
-- Clock and date widget
+Jibi turns your new tab into a personal dashboard with:
+
+- Custom themes and backgrounds
+- Persian (Jalali) calendar
+- Weather widget
+- To-Do list
 - Bookmark management
-- Daily notes
-- Dark/Light theme
+- Music player
+- Dark / Light mode
+- Backup & Restore (JSON export)
 
 ## Project Structure
 
 ```
 .
 ├── index.html              # Homepage
-├── blog.html               # Blog page
+├── blog.html               # Blog listing
 ├── contact.html            # Contact page
-├── post.html               # Main article template
-├── post-*.html             # Individual articles
-├── src/                    # Assets folder
-│   ├── icon.png           # Main icon
-│   ├── icon128.png        # 128px icon
-│   └── ...                # Other images
-└── Sample/                # Samples and tests
+├── 404.html                # Error page
+├── pages/posts/            # Blog articles
+│   ├── customization.html
+│   ├── bookmarks.html
+│   ├── dark-mode.html
+│   ├── speed-tips.html
+│   ├── update-2.html
+│   ├── idea-story.html
+│   └── privacy.html
+├── assets/
+│   ├── css/                # Stylesheets
+│   ├── js/                 # Common + page scripts
+│   ├── fonts/              # IranYekanX (woff2)
+│   └── images/             # WebP images
+├── nginx.conf              # HTTP dev config
+├── nginx-ssl.conf          # HTTPS production config
+├── docker-compose.yml      # Docker orchestration
+├── deploy.sh               # One-command deploy with Let's Encrypt
+└── Dockerfile
 ```
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (with Tailwind CSS CDN)
+- CSS3 (custom, no framework)
 - JavaScript (Vanilla)
-- Vazirmatn Font (Persian/Arabic typeface)
+- IranYekanX Font (Persian typeface)
+- Nginx (Alpine)
+- Docker + Docker Compose
 
 ## Features
 
+- Fully static — no backend required
 - Responsive design
 - Dark mode support
-- Full RTL (Right-to-Left) support
-- Smooth animations
-- SEO optimized
+- Full RTL (Right-to-Left)
+- Smooth animations with `prefers-reduced-motion` respect
+- SEO optimized (canonical, Open Graph, JSON-LD, sitemap)
+- Let's Encrypt SSL via Certbot (auto-renewal)
+
+## Deployment
+
+Requires a server with Docker installed.
+
+```bash
+# Set your email for Let's Encrypt
+EMAIL=you@example.com ./deploy.sh
+```
+
+The script will:
+1. Install Docker if missing
+2. Seed a temporary self-signed certificate so Nginx can boot
+3. Build and start the containers
+4. Request a real Let's Encrypt certificate
+5. Start the auto-renewal loop
+
+## Useful Commands
+
+```bash
+docker compose logs -f
+docker compose restart web
+docker compose exec web nginx -s reload
+docker compose down
+```
 
 ## Links
 
@@ -48,8 +93,4 @@ Jibi is a Chrome extension for customizing the new tab page with features like:
 
 ## License
 
-Made with ❤️ for the Persian-speaking community
-
----
-
-**Note:** This is a static website with no backend required.
+Made with care for the Persian-speaking community.

@@ -7,18 +7,28 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx-ssl.conf:/etc/nginx/conf.d/default.conf:ro
       - certbot-www:/var/www/certbot:ro
       - certbot-certs:/etc/letsencrypt:ro
-      - ./nginx-ssl.conf:/etc/nginx/conf.d/ssl.conf:ro
+    # Reload nginx every 6h to pick up renewed certs without rebuild
+    command: >
+      /bin/sh -c "nginx -g 'daemon off;' &
+      NGINX_PID=$$!;
+      while :; do sleep 6h; nginx -s reload 2>/dev/null || true; done &
+      wait $$NGINX_PID"
 
   certbot:
     image: certbot/certbot
     container_name: jibi-certbot
+    restart: unless-stopped
     volumes:
       - certbot-www:/var/www/certbot
       - certbot-certs:/etc/letsencrypt
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    # Renew every 12h; nginx picks up new certs on its own reload loop
+    entrypoint: >
+      /bin/sh -c "trap exit TERM;
+      while :; do certbot renew --webroot -w /var/www/certbot --quiet;
+      sleep 12h & wait $${!}; done"
 
 volumes:
   certbot-www:

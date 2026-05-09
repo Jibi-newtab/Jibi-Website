@@ -2,52 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jibitab.ir/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jibitab.ir/blog.html</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jibitab.ir/contact.html</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://jibitab.ir/pages/posts/customization.html</loc>
+    <lastmod>2025-03-06</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://jibitab.ir/pages/posts/dark-mode.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://jibitab.ir/pages/posts/bookmarks.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://jibitab.ir/pages/posts/idea-story.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://jibitab.ir/pages/posts/privacy.html</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://jibitab.ir/pages/posts/speed-tips.html</loc>
+    <lastmod>2025-03-01</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://jibitab.ir/pages/posts/update-2.html</loc>
+    <lastmod>2025-02-24</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://jibitab.ir/pages/posts/idea-story.html</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jibitab.ir/pages/posts/dark-mode.html</loc>
+    <lastmod>2025-02-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jibitab.ir/pages/posts/bookmarks.html</loc>
+    <lastmod>2025-02-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jibitab.ir/pages/posts/privacy.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

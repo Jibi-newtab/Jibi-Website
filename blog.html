@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
     <title>بلاگ – جیبی</title>
     <meta name="description" content="مطالب، راهنما و اخبار جیبی. آخرین مقاله‌ها، نکات کاربردی و داستان‌های پشت پرده تب جدید هوشمند.">
     <meta name="keywords" content="بلاگ جیبی, راهنما, آموزش, آپدیت, تب جدید">
     <link rel="canonical" href="https://jibitab.ir/blog.html">
-    <link rel="icon" type="image/png" href="assets/images/icon128.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/icon128.webp">
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/iranyekanx-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/iranyekanx-bold.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/fonts/iranyekan.css">
     <meta property="og:title" content="بلاگ – جیبی">
     <meta property="og:description" content="مطالب، راهنما و اخبار جیبی. آخرین مقاله‌ها و نکات کاربردی.">
-    <meta property="og:image" content="https://jibitab.ir/assets/images/icon.png">
+    <meta property="og:image" content="https://jibitab.ir/assets/images/icon.webp">
     <meta property="og:url" content="https://jibitab.ir/blog.html">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -24,7 +26,7 @@
 <!-- NAVBAR -->
 <nav>
     <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon"><img src="assets/images/icon.png" alt="لوگوی جیبی"></div>
+        <div class="nav-logo-icon"><img src="assets/images/icon.webp" alt="لوگوی جیبی"></div>
         <span>جیبی</span>
     </a>
 
@@ -76,27 +78,28 @@
     </a>
 </div>
 
-<!-- HERO -->
-<!-- POSTS SECTION -->
+<!-- BLOG HERO -->
 <main id="main-content">
-<section class="section-wrap outer-white">
-    <div class="section-inner inner-gray">
+<section class="blog-hero-section">
+    <div class="blog-hero-glow"></div>
+    <div class="blog-hero-content">
+        <span class="detail-tag">📝 بلاگ جیبی</span>
+        <h1 class="blog-hero-title">مطالب، راهنما و اخبار</h1>
+        <p class="blog-hero-subtitle">آخرین مقاله‌ها، نکات کاربردی و داستان‌های پشت پرده جیبی</p>
 
-        <!-- BLOG HERO -->
-        <div class="blog-hero">
-            <span class="detail-tag">📝 بلاگ جیبی</span>
-            <h1 class="section-title">مطالب، راهنما و اخبار</h1>
-            <p class="section-subtitle">آخرین مقاله‌ها، نکات کاربردی و داستان‌های پشت پرده جیبی</p>
-
-            <!-- FILTER BAR -->
-            <div class="filter-bar">
-                <button class="filter-btn active" data-filter="all">همه</button>
-                <button class="filter-btn" data-filter="tips">نکات کاربردی</button>
-                <button class="filter-btn" data-filter="update">آپدیت‌ها</button>
-                <button class="filter-btn" data-filter="guide">راهنما</button>
-                <button class="filter-btn" data-filter="story">پشت صحنه</button>
-            </div>
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">همه</button>
+            <button class="filter-btn" data-filter="tips">نکات کاربردی</button>
+            <button class="filter-btn" data-filter="update">آپدیت‌ها</button>
+            <button class="filter-btn" data-filter="guide">راهنما</button>
+            <button class="filter-btn" data-filter="story">پشت صحنه</button>
         </div>
+    </div>
+</section>
+
+<section class="blog-body">
+    <div class="blog-container">
 
         <!-- FEATURED POST -->
         <a href="pages/posts/customization.html" class="featured-post anim" data-category="guide">
@@ -108,10 +111,13 @@
                 <h2>راهنمای کامل شخصی‌سازی تب جدید با جیبی</h2>
                 <p>از نصب اولیه تا تنظیم دقیق تم، بوکمارک‌ها و ابزارها — همه چیز رو قدم به قدم یاد بگیر تا تبت دقیقاً همونی بشه که می‌خوای.</p>
                 <div class="post-meta">
-                    <span>📅 ۱۵ اسفند ۱۴۰۳</span>
+                    <span>📅 <time datetime="2025-03-06">۱۵ اسفند ۱۴۰۳</time></span>
                     <span>⏱ ۵ دقیقه مطالعه</span>
                 </div>
-                <span class="read-more">بخوان ←</span>
+                <span class="read-more">
+                    بخوان
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </span>
             </div>
         </a>
 
@@ -214,6 +220,8 @@
     </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
     <div class="footer-snowflakes">
@@ -227,10 +235,10 @@
         <div class="footer-top">
             <div>
                 <div class="footer-brand-logo">
-                    <div class="footer-logo-icon"><img src="assets/images/icon.png" alt="لوگوی جیبی"></div>
+                    <div class="footer-logo-icon"><img src="assets/images/icon.webp" alt="لوگوی جیبی" loading="lazy"></div>
                     <span class="footer-brand-name">جیبی</span>
                 </div>
-                <p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان، متن‌باز و محافظ حریم خصوصی.</p>
+                <p class="footer-desc">تب جدید هوشمند برای مرورگر شما. رایگان و محافظ حریم خصوصی.</p>
             </div>
             <div class="footer-col">
                 <h4>محصول</h4>
@@ -253,11 +261,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-copy">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
+            <span class="footer-tagline">ساخته شده با ❤️ برای تجربه‌ای بهتر</span>
+            <span class="footer-copy">© ۱۴۰۴ جیبی. تمامی حقوق محفوظ است.</span>
         </div>
     </div>
 </footer>
-</main>
 
 <script src="assets/js/common.js"></script>
 <script src="assets/js/blog.js"></script>

@@ -1,38 +1,44 @@
 // Blog Filter
-const filterBtns = document.querySelectorAll('.filter-btn');
-const posts = document.querySelectorAll('#blogGrid .post-card');
-const featuredPost = document.querySelector('.featured-post');
-const emptyState = document.getElementById('emptyState');
+(function () {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var posts = document.querySelectorAll('#blogGrid .post-card');
+    var featuredPost = document.querySelector('.featured-post');
+    var emptyState = document.getElementById('emptyState');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            filterBtns.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
 
-        const filter = btn.dataset.filter;
-        let visibleCount = 0;
+            var filter = btn.dataset.filter;
+            var visibleCount = 0;
 
-        if (filter === 'all' || featuredPost.dataset.category === filter) {
-            featuredPost.style.display = '';
-        } else {
-            featuredPost.style.display = 'none';
-        }
+            // Featured post
+            if (featuredPost) {
+                var featuredMatch = filter === 'all' || featuredPost.dataset.category === filter;
+                featuredPost.style.display = featuredMatch ? '' : 'none';
+                if (featuredMatch && featuredPost.dataset.category === filter) visibleCount++;
+                if (filter === 'all' && featuredPost) visibleCount++;
+            }
 
-        posts.forEach(post => {
-            const match = filter === 'all' || post.dataset.category === filter;
-            post.style.display = match ? '' : 'none';
-            if (match) visibleCount++;
+            // Grid posts
+            posts.forEach(function (post) {
+                var match = filter === 'all' || post.dataset.category === filter;
+                if (match) {
+                    post.classList.remove('hidden');
+                    post.style.animation = 'fadeUp 0.4s ease forwards';
+                    visibleCount++;
+                } else {
+                    post.classList.add('hidden');
+                    post.style.animation = '';
+                }
+            });
+
+            // Empty state
+            if (emptyState) {
+                var totalVisible = visibleCount + (featuredPost && featuredPost.style.display !== 'none' && filter === 'all' ? 0 : 0);
+                emptyState.style.display = (visibleCount === 0 && filter !== 'all') ? 'block' : 'none';
+            }
         });
-
-        emptyState.style.display = (visibleCount === 0 && filter !== 'all') ? 'block' : 'none';
     });
-});
-
-// Newsletter
-function handleNewsletter() {
-    const email = document.getElementById('newsletterEmail').value.trim();
-    if (!email || !email.includes('@')) return;
-    document.getElementById('newsletterEmail').style.display = 'none';
-    document.querySelector('.btn-primary').style.display = 'none';
-    document.getElementById('newsletterMsg').style.display = 'block';
-}
+})();

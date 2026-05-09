@@ -25,8 +25,8 @@
 }
 
 .hero h1 {
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight: 900;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
     line-height: 1.3;
     margin-bottom: 20px;
     display: flex;
@@ -70,8 +70,8 @@
     color: var(--text);
     padding: 14px 32px;
     border-radius: 999px;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     text-decoration: none;
     transition: all 0.2s;
 }
@@ -129,7 +129,7 @@
 
 .word.pos2 { top: 0%; opacity: 0.3; font-size: 0.9em; }
 .word.pos1 { top: 22%; opacity: 0.55; font-size: 1em; }
-.word.active { top: 50%; transform: translateY(-50%); opacity: 1; font-weight: 800; font-size: 1.2em; }
+.word.active { top: 50%; transform: translateY(-50%); opacity: 1; font-weight: 600; font-size: 1.2em; }
 .word.neg1 { top: 72%; opacity: 0.55; font-size: 1em; }
 .word.neg2 { top: 90%; opacity: 0.3; font-size: 0.9em; }
 
@@ -176,14 +176,14 @@
 }
 
 .step-box h3 {
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 20px;
+    font-weight: 700;
     color: var(--text);
     margin-bottom: 12px;
 }
 
 .step-box p {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--text-mid);
     line-height: 1.8;
 }
@@ -209,24 +209,24 @@
 .why-card {
     background: var(--bg-soft);
     border-radius: var(--radius);
-    padding: 40px 32px;
+    padding: 36px 28px;
     text-align: center;
     border: 1.5px dashed var(--border);
     transition: all 0.3s ease;
 }
 
 .why-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 22px;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 70px;
-    margin: 0 auto 20px;
+    font-size: 56px;
+    margin: 0 auto 16px;
 }
 
-.why-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+.why-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
 .why-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
 
 /* === DETAILED VIEW SECTION === */
@@ -259,8 +259,8 @@
 }
 
 .detail-text h2 {
-    font-size: clamp(26px, 3.5vw, 38px);
-    font-weight: 900;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
     line-height: 1.3;
     margin-bottom: 20px;
 }
@@ -377,7 +377,7 @@
 }
 
 .tool-icon { font-size: 36px; margin-bottom: 12px; display: block; }
-.tool-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.tool-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .tool-card p { font-size: 13px; color: var(--text-light); }
 
 /* === TESTIMONIALS SECTION === */
@@ -415,7 +415,7 @@
 .stars { color: #FFB800; font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
 .testimonial-text { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin-bottom: 24px; }
 .testimonial-author { display: flex; align-items: center; gap: 14px; }
-.author-info h5 { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+.author-info h5 { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
 .author-info p { font-size: 13px; color: var(--text-light); }
 
 /* === FAQ SECTION === */
@@ -447,8 +447,8 @@
 
 .faq-question {
     padding: 20px 24px;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -469,10 +469,14 @@
     background: var(--bg-card);
     border-radius: 50%;
     border: 1.5px solid var(--border);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    padding-bottom: 2px;
     transition: all 0.25s;
     flex-shrink: 0;
 }
@@ -524,8 +528,8 @@
 }
 
 .cta-section h2 {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 900;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
     color: white;
     line-height: 1.4;
     margin-bottom: 32px;
@@ -624,7 +628,6 @@
     font-size: 40px;
     color: var(--primary);
     flex-shrink: 0;
-    font-weight: 900;
     line-height: 1;
 }
 .compare-screen {
