@@ -346,6 +346,18 @@
     display: block;
 }
 
+.mockup-browser img.theme-image-dark {
+    display: none;
+}
+
+[data-theme="dark"] .mockup-browser img.theme-image-light {
+    display: none;
+}
+
+[data-theme="dark"] .mockup-browser img.theme-image-dark {
+    display: block;
+}
+
 /* === TOOLS SECTION === */
 .tools-section {
     padding: 100px 24px;
