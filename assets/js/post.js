@@ -45,6 +45,16 @@ function copyLink() {
     }
 }
 
+function shareOnTelegram() {
+    var shareUrl = 'https://t.me/share/url?url=' + encodeURIComponent(window.location.href);
+    window.open(shareUrl, '_blank', 'noopener');
+}
+
+function shareOnInstagram() {
+    copyLink();
+    window.open('https://www.instagram.com/', '_blank', 'noopener');
+}
+
 // === Smooth Scroll for TOC and anchor links ===
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {

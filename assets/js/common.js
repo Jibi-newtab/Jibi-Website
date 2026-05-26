@@ -32,9 +32,16 @@
 (function () {
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobileMenu');
+    var nav = document.querySelector('body > nav');
     if (!hamburger || !mobileMenu) return;
 
     var lastFocus = null;
+
+    function syncNavHeight() {
+        if (!nav) return;
+        var navHeight = nav.offsetHeight || 60;
+        document.documentElement.style.setProperty('--nav-height', navHeight + 'px');
+    }
 
     function isOpen() {
         return mobileMenu.classList.contains('open');
@@ -66,8 +73,17 @@
         if (isOpen()) closeMenu(); else openMenu();
     }
 
+    function handleResize() {
+        syncNavHeight();
+        if (window.innerWidth > 900 && isOpen()) {
+            closeMenu();
+        }
+    }
+
     hamburger.setAttribute('aria-expanded', 'false');
     hamburger.setAttribute('aria-controls', 'mobileMenu');
+
+    syncNavHeight();
 
     hamburger.addEventListener('click', toggleMenu);
 
@@ -115,4 +131,7 @@
         if (mobileMenu.contains(e.target) || hamburger.contains(e.target)) return;
         closeMenu();
     });
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', syncNavHeight);
 })();

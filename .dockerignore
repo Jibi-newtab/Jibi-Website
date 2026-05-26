@@ -16,6 +16,4 @@ README.md
 deploy.sh
 docker-compose.yml
 Dockerfile
-nginx.conf
-nginx-ssl.conf
 .dockerignore
