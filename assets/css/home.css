@@ -102,6 +102,12 @@
     user-select: none;
 }
 
+.hero-emoji .emoji-img {
+    display: block;
+    width: clamp(42px, 5.5vw, 76px);
+    height: clamp(42px, 5.5vw, 76px);
+}
+
 /* === WORD ROTATOR === */
 .sentence {
     display: flex;
@@ -131,6 +137,11 @@
     color: var(--text);
     white-space: nowrap;
     line-height: 1.2;
+}
+
+.word .emoji-img {
+    width: 1.25em;
+    height: 1.25em;
 }
 
 .word.pos2 { top: 0%; opacity: 0.3; font-size: 0.9em; }
@@ -179,6 +190,22 @@
     transform: translateY(-4px);
     box-shadow: var(--shadow);
     border-color: rgba(91,94,255,0.2);
+}
+
+.step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    margin-bottom: 16px;
+}
+
+.step-icon .emoji-img {
+    display: block;
+    width: 112px;
+    height: 112px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 .step-box h3 {
@@ -230,6 +257,12 @@
     justify-content: center;
     font-size: 56px;
     margin: 0 auto 16px;
+}
+
+.why-icon .emoji-img {
+    width: clamp(64px, 7vw, 82px);
+    height: clamp(64px, 7vw, 82px);
+    filter: drop-shadow(0 8px 18px rgba(91,94,255,0.14));
 }
 
 .why-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
@@ -346,6 +379,12 @@
     font-weight: 700;
 }
 
+.mockup-content .emoji-img {
+    width: clamp(90px, 18vw, 150px);
+    height: clamp(90px, 18vw, 150px);
+    filter: drop-shadow(0 14px 28px rgba(0,0,0,0.22));
+}
+
 .mockup-browser img {
     width: 100%;
     height: auto;
@@ -394,7 +433,20 @@
     box-shadow: var(--shadow);
 }
 
-.tool-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+.tool-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-icon .emoji-img {
+    width: clamp(46px, 5.5vw, 58px);
+    height: clamp(46px, 5.5vw, 58px);
+    filter: drop-shadow(0 6px 14px rgba(91,94,255,0.12));
+}
+
 .tool-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .tool-card p { font-size: 13px; color: var(--text-light); }
 
@@ -422,15 +474,22 @@
     padding: 32px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
+.stars {
+    color: #FFB800;
+    font-size: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+    display: inline-flex;
+    gap: 3px;
 }
 
-.stars { color: #FFB800; font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+.stars .emoji-img {
+    width: 22px;
+    height: 22px;
+}
+
 .testimonial-text { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin-bottom: 24px; }
 .testimonial-author { display: flex; align-items: center; gap: 14px; }
 .author-info h5 { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
@@ -532,7 +591,7 @@
 
 /* === CTA SECTION === */
 .cta-section {
-    margin: 60px 24px;
+    margin: 60px 140px;
     border-radius: 36px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #5B5EFF 100%);
     padding: 100px 24px 120px;

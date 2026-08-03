@@ -20,7 +20,8 @@ body {
     --text-mid: #4A4A6A;
     --text-light: #6F6F8E;
     --border: #E8E8F0;
-    --nav-bg: rgba(255,255,255,0.92);
+    --nav-bg: rgba(248,250,255,0.96);
+    --nav-scrolled-bg: rgba(248,250,255,0.86);
     --mobile-menu-bg: rgba(255,255,255,0.97);
     --mockup-bar: #F0F0F5;
     --shadow: 0 4px 24px rgba(91,94,255,0.08);
@@ -42,7 +43,8 @@ body {
     --text-mid: #A0A0C0;
     --text-light: #9090C0;
     --border: #2A2A45;
-    --nav-bg: rgba(15,15,26,0.92);
+    --nav-bg: rgba(15,15,26,0.96);
+    --nav-scrolled-bg: rgba(20,20,40,0.86);
     --mobile-menu-bg: rgba(20,20,40,0.97);
     --mockup-bar: #252540;
     --shadow: 0 4px 24px rgba(91,94,255,0.18);
@@ -62,17 +64,46 @@ body {
 body > nav {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: max(24px, calc((100% - 1180px) / 2));
+    right: max(24px, calc((100% - 1180px) / 2));
     z-index: 1000;
-    background: var(--nav-bg);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 40px;
+    min-height: 68px;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    padding: 11px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    box-shadow: none;
+    transition:
+        top 0.3s ease,
+        left 0.3s ease,
+        right 0.3s ease,
+        padding 0.3s ease,
+        border-color 0.3s ease,
+        border-radius 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+body > nav.is-scrolled {
+    top: 16px;
+    left: max(24px, calc((100% - 1180px) / 2));
+    right: max(24px, calc((100% - 1180px) / 2));
+    padding: 10px 24px;
+    background: var(--nav-scrolled-bg);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-color: var(--border);
+    border-radius: 28px;
+    box-shadow: 0 10px 34px rgba(24,32,72,0.14);
+}
+
+[data-theme="dark"] body > nav.is-scrolled {
+    box-shadow: 0 12px 38px rgba(0,0,0,0.34);
 }
 
 .nav-logo {
@@ -125,6 +156,11 @@ body > nav {
 
 .nav-links a:hover,
 .nav-links a.active { color: var(--primary); }
+
+body > nav.is-scrolled .nav-links a.active {
+    background: var(--primary-soft);
+    box-shadow: 0 6px 18px rgba(91,94,255,0.08);
+}
 
 .nav-cta {
     display: inline-flex;
@@ -205,10 +241,10 @@ body > nav {
 .mobile-menu {
     display: none;
     position: fixed;
-    top: calc(var(--nav-height) + 10px);
+    top: calc(var(--nav-top-offset, 0px) + var(--nav-height) + 10px);
     left: 12px;
     right: 12px;
-    max-height: calc(100dvh - var(--nav-height) - 22px);
+    max-height: calc(100dvh - var(--nav-top-offset, 0px) - var(--nav-height) - 22px);
     overflow-y: auto;
     z-index: 999;
     background: var(--mobile-menu-bg);
@@ -241,7 +277,18 @@ body > nav {
     .nav-links { display: none; }
     .nav-actions .nav-cta { display: none; }
     .hamburger { display: flex; }
-    body > nav { padding: 10px 16px; }
+    body > nav {
+        left: 12px;
+        right: 12px;
+        padding: 10px 16px;
+    }
+    body > nav.is-scrolled {
+        top: 8px;
+        left: 12px;
+        right: 12px;
+        padding: 9px 12px;
+        border-radius: 22px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -298,12 +345,44 @@ body > nav {
 
 .post-meta span { display: flex; align-items: center; gap: 4px; }
 
+/* === CONSISTENT EMOJI IMAGES === */
+.emoji-img {
+    display: inline-block;
+    width: 1.35em;
+    height: 1.35em;
+    object-fit: contain;
+    vertical-align: -0.28em;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.emoji-img[aria-hidden="true"] {
+    pointer-events: none;
+    user-select: none;
+}
+
+.detail-tag .emoji-img,
+.post-category .emoji-img,
+.post-meta .emoji-img,
+.share-btn .emoji-img,
+.footer-tagline .emoji-img {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.footer-snowflake .emoji-img {
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    opacity: 0.75;
+}
+
 /* === SHARED BUTTONS === */
 .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(180deg, #76A5FF 0%, var(--primary) 100%);
+    background: linear-gradient(180deg, #536DDC 0%, #5B5EFF 100%);
     color: white;
     padding: 14px 32px;
     border-radius: 999px;
@@ -358,12 +437,6 @@ footer {
     color: white;
     position: relative;
     overflow: hidden;
-}
-
-.footer-snowflakes {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
 }
 
 .footer-snowflake {

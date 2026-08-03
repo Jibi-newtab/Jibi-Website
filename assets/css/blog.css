@@ -137,6 +137,13 @@
 }
 
 .featured-img span { position: relative; z-index: 1; }
+.featured-img .emoji-img {
+    position: relative;
+    z-index: 1;
+    width: clamp(112px, 14vw, 154px);
+    height: clamp(112px, 14vw, 154px);
+    filter: drop-shadow(0 14px 28px rgba(0,0,0,0.22));
+}
 
 .featured-body {
     padding: 36px;
@@ -239,6 +246,13 @@
 .card-img.gradient-6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
 
 .card-img span { position: relative; z-index: 1; }
+.card-img .emoji-img {
+    position: relative;
+    z-index: 1;
+    width: clamp(78px, 9vw, 104px);
+    height: clamp(78px, 9vw, 104px);
+    filter: drop-shadow(0 10px 22px rgba(0,0,0,0.2));
+}
 
 .card-body {
     padding: 24px;
@@ -287,7 +301,18 @@
     animation: fadeUp 0.4s ease;
 }
 
-.empty-state .empty-icon { font-size: 64px; margin-bottom: 16px; }
+.empty-state .empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.empty-state .empty-icon .emoji-img {
+    width: clamp(82px, 16vw, 112px);
+    height: clamp(82px, 16vw, 112px);
+}
+
 .empty-state h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
 .empty-state p { font-size: 15px; color: var(--text-mid); }
 

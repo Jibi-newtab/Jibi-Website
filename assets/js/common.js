@@ -28,6 +28,57 @@
     });
 })();
 
+// === Floating Navbar on Scroll ===
+(function () {
+    var nav = document.querySelector('body > nav');
+    if (!nav) return;
+
+    var ticking = false;
+    var isScrolled = false;
+
+    function syncNavMetrics() {
+        var topOffset = parseFloat(window.getComputedStyle(nav).top) || 0;
+        document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+        document.documentElement.style.setProperty('--nav-top-offset', topOffset + 'px');
+    }
+
+    function updateNavbar() {
+        var shouldFloat = window.scrollY > 24;
+
+        if (shouldFloat !== isScrolled) {
+            isScrolled = shouldFloat;
+            nav.classList.toggle('is-scrolled', shouldFloat);
+            window.requestAnimationFrame(syncNavMetrics);
+        }
+
+        ticking = false;
+    }
+
+    function requestNavbarUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateNavbar);
+    }
+
+    updateNavbar();
+    syncNavMetrics();
+
+    nav.addEventListener('transitionend', function (e) {
+        if (e.propertyName === 'top' || e.propertyName === 'padding-top') {
+            syncNavMetrics();
+        }
+    });
+
+    window.addEventListener('scroll', requestNavbarUpdate, { passive: true });
+    window.addEventListener('resize', function () {
+        requestNavbarUpdate();
+        window.requestAnimationFrame(syncNavMetrics);
+    });
+    window.addEventListener('orientationchange', function () {
+        window.requestAnimationFrame(syncNavMetrics);
+    });
+})();
+
 // === Hamburger / Mobile Menu ===
 (function () {
     var hamburger = document.getElementById('hamburger');
