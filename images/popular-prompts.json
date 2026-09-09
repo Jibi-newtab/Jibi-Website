@@ -1,0 +1,104 @@
+[
+  {
+    "id": "tennis-portrait",
+    "title": "tennis-portrait",
+    "prompt": "Use the main subject of this image to create a straight on angle realistic high-end editorial sports photograph of that same person as a professional tennis player. Subject as an athlete in an unmarked white tennis outfit poses at the net, relaxed and powerful. Bright midday high-flash lighting, crisp shadows, vibrant green court, deep cobalt blue sky, dozens of motion-blurred tennis balls frozen around them. Glossy magazine aesthetic, bold composition, ultra-clean photorealism, high microcontrast, polished commercial color grading.",
+    "image": "https://jibitab.ir/images/prompt/tennis-portrait.webp"
+  },
+  {
+    "id": "clawgame",
+    "title": "clawgame",
+    "prompt": "Extreme high angle shot. Small, brightly colored adorable felt arcade plushie with an oversized head. Arcade claw grasping the subject plushie, surprised facial expression. Wearing miniature sewn replicas of real clothing. The plushie is squeezed tightly among a mountain of other colorful stuffed animals, the plushie head sticking out, looking up at the camera. Angled down inside a glowing glass claw machine, lit by vibrant neon arcade lights.",
+    "image": "https://jibitab.ir/images/prompt/clawgame.webp"
+  },
+  {
+    "id": "watercolor",
+    "title": "watercolor",
+    "prompt": "Vibrant impressionist watercolor painting. Wearing a sun-hat and a textured linen suit, composed of thick watercolor impressionist brushstrokes. Dappled sunlight filters through trees, capturing a relaxed and candid expression.",
+    "image": "https://jibitab.ir/images/prompt/watercolor.webp"
+  },  
+  {
+    "id": "handdrawn",
+    "title": "handdrawn",
+    "prompt": "Character in a cozy indie video game with a hand-drawn art style. Standing in a charming small-town bakery filled with loaves of bread and sweet pastries. Wearing a cute denim apron over a striped shirt. The whole scene has a soft, pastel color palette, with little sparkles of magic floating around. Whimsical, feel-good aesthetic.",
+    "image": "https://jibitab.ir/images/prompt/handdrawn.webp"
+  },  
+  {
+    "id": "monstera",
+    "title": "monstera",
+    "prompt": "Inside a hyper-realistic, lush botanical conservatory. Face is partially obscured by large, vibrant Monstera leaves and hanging ferns. Lighting: dappled sunlight breaking through a glass ceiling, creating intricate shadow patterns on skin. Wearing a simple, high-quality linen shirt. Depth of field: shallow, with a soft bokeh effect on the tropical greenery in the background. Feels intimate and ethereal.",
+    "image": "https://jibitab.ir/images/prompt/monstera.webp"
+  },
+  {
+    "id": "global-bobblehead",
+    "title": "global-bobblehead",
+    "prompt": "Create an e-commerce studio photograph of a cheap mass-produced plastic soccer bobblehead toy inspired by the uploaded photo only in a very loose way. Use the person’s identity and exact face as a reference, but make the face more youthful with a broad friendly smile and chunky molded plastic hair. The toy must look physically photographed, not CGI or a 3D render. Oversized bobblehead head, comically huge, about 12x the tiny body. Simplified molded vinyl face with painted eyes, painted brows, molded smile, visible paint boundaries, tiny paint misalignment, subtle mold seam lines, injection-molded plastic texture, small scuffs, soft specular highlights. Molded plastic hair with chunky sculpted grooves, not individual strands.Front-facing three-quarter product angle, looking at camera. Tiny soccer-player body in a soccer kit inspired by [COUNTRY] colors. One foot beside a black-and-white soccer ball on a circular green soccer-field display base with a red rim.Photograph on a real football stadium pitch at early evening, shallow depth of field, even softbox lighting, crisp contact shadow beneath the base, centered clean product composition. Avoid premium resin statue, anime figurine, porcelain doll, realistic skin, detailed hair strands, perfect CGI, airbrushed fantasy collectible, or hyperreal character.Avoid all logos, brands, team kits, federation crests, tournament imagery, and recognizable jersey patterns. Ask me what country and then generate the image.",
+    "image": "https://jibitab.ir/images/prompt/global-bobblehead.webp"
+  },
+  {
+    "id": "anime-sheet",
+    "title": "Anime Sheet",
+    "prompt": "Create a trending anime art style image from the uploaded subject. Use confident line-work with slight variation and minimal cel shading using flat shadow shapes. Use bright, saturated colors and clean graphic lighting. The style is defined by exaggerated, cartoonish character proportions featuring highly expressive, simplistic facial features that allow for immense emotional range, with highly varied stretched anatomy. Transform the environment into a slightly warped space with playful perspective distortion and simplified objects. Composition and tone should be energetic, lively, and comedic in a fully stylized, non-realistic world.",
+    "image": "https://jibitab.ir/images/prompt/anime-sheet.webp"
+  },
+  {
+    "id": "white-lines-sheet",
+    "title": "white lines sheet",
+    "prompt": "Add a hand drawn overlay on top of the image. Final output should be stylish, relaxed and effortlessly casual. Drawing rules: Use thin, hand-drawn lines as if drawn with a white pen. Keep it in a single-stroke style: rough and slightly uneven. Add outlines tracing around the outer edges of objects. Use arrows or dotted lines to guide the viewer’s eye. Text rules: Handwritten text. Keep it short, like a casual inner monologue. Tone: diary-like, brief, and emotion-focused. Commentary should be positive and sweet. Decorations: Add steam, sparkles, hearts, small emoticon-like faces sparingly. Avoid overdoing it; leave some “negative space”.",
+    "image": "https://jibitab.ir/images/prompt/white-lines-sheet.webp"
+  },
+  {
+    "id": "mini-me-global-sheet",
+    "title": "mini me global sheet",
+    "prompt": "Turn this photo into a magical “Mini Me” world where tiny animated versions of yourself come to life around you. These cute 3D-style mini characters interact with your everyday surroundings — climbing onto your shoulders, sitting on your bag, waving, playing, and copying your poses — creating a playful yet emotional social media story-worthy scene full of personality and story. The original photo remains untouched while the tiny characters bring the image to life with depth, movement, realistic shadows, and a soft aesthetic vibe.",
+    "image": "https://jibitab.ir/images/prompt/mini-me-global-sheet.webp"
+  },
+  {
+    "id": "tarot-sheet",
+    "title": "Tarot Sheet",
+    "prompt": "Create a tarot card based off of what you know about me in the classic Rider-Waite style. Style me in a hand-drawn figure using bold but imperfect black ink linework with wobble and variation, flat colors with no shading. Layer subtle tarot visual elements around the figure. Add paper texture and print feel.",
+    "image": "https://jibitab.ir/images/prompt/tarot-sheet.webp"
+  },
+  {
+    "id": "chatgpt-viral-prompt-28-360x480",
+    "title": "Moody Editorial Portrait",
+    "prompt": "Create a moody portrait with dramatic studio lighting. The subject should stand slightly off-center in front of a large, soft golden spotlight circle on a deep navy background. Use soft shadows and a cinematic feel. The subject must wear a plain black t-shirt, have slightly long, wavy hair, flawless fair skin, and no glasses or facial hair. Lighting should fall from the top-left, casting a clear shadow to the right. Maintain a 4:3 aspect ratio and keep the camera angle and distance consistent with classic editorial portraits.",
+    "image": "https://jibitab.ir/images/prompt/ChatGPT-Viral-Prompt-28-360x480.webp"
+  },
+  {
+    "id": "character-plush-figure-chatgpt",
+    "title": "Character Plush Figure",
+    "prompt": "Transform the woman into a soft plush toy version that looks exactly like her with same hair, outfit and features but as a stuffed doll",
+    "image": "https://jibitab.ir/images/prompt/character-plush-figure-chatgpt.png"
+  },
+  {
+    "id": "screenshot-2026-04-28-101644",
+    "title": "Funko Pop Figure",
+    "prompt": "Transform into a Funko Pop vinyl figure with massive square head, tiny body, glossy black circular eyes",
+    "image": "https://jibitab.ir/images/prompt/Screenshot 2026-04-28 101644.png"
+  },
+  {
+    "id": "chibi-crochet-doll-chatgpt",
+    "title": "Chibi Crochet Doll",
+    "prompt": "Transform the entire image into a cute crocheted amigurumi doll with visible yarn texture, stitches, and handmade wool appearance with button eyes",
+    "image": "https://jibitab.ir/images/prompt/chibi-crochet-doll-chatgpt.png"
+  },
+  {
+    "id": "screenshot-2026-04-28-101606",
+    "title": "Emoji Expression Grid",
+    "prompt": "Create grid of emoji expressions with exaggerated chibi features",
+    "image": "https://jibitab.ir/images/prompt/Screenshot 2026-04-28 101606.png"
+  },
+  {
+    "id": "scribble-sheet",
+    "title": "scribble sheet",
+    "prompt": "Redraw the attached image in the most clumsy, scribbly, and utterly pathetic way possible. Use a white background, and make it look like it was drawn in an old computer painting program with a mouse. It should be vaguely similar but also not really, kind of matching but also off in a confusing, awkward way, with that low-quality pixel-by-pixel feel that really emphasizes how ridiculously bad it is. Actually, you know what, whatever, just draw it however you want.",
+    "image": "https://jibitab.ir/images/prompt/scribble-sheet.webp"
+  },
+  {
+    "id": "3d-avatar-sheet",
+    "title": "3D Avatar Sheet",
+    "prompt": "Create a premium glossy 3D \"designer toy\" render of the subject(s) using the uploaded image as the only reference. Render one floating head per person (no duplication), cropped cleanly below the jaw with a visible neck and full head comfortably framed. Style: high-quality vinyl figure with ultra-smooth, simplified forms, rounded volumes, and strong glossy reflections across key facial areas. Hair should be sculpted, glossy, and stylized, with embedded playful accessories. Include oversized retro wraparound sunglasses with vibrant, matching frame/lens colors. Use strong studio lighting with pronounced highlights. Background: blue sky with soft clouds.",
+    "image": "https://jibitab.ir/images/prompt/3d-avatar-sheet.webp"
+  }
+]

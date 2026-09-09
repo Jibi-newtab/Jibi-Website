@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "basePath": "/JibiSoundStorage/",
+  "sounds": [
+    {
+      "id": "wind",
+      "icon": "💨",
+      "labels": {
+        "fa": "باد",
+        "en": "Wind"
+      },
+      "file": "wind.mp3"
+    },
+    {
+      "id": "ocean",
+      "icon": "🌊",
+      "labels": {
+        "fa": "اقیانوس",
+        "en": "Ocean"
+      },
+      "file": "ocean.wav"
+    },
+    {
+      "id": "rain",
+      "icon": "🌧",
+      "labels": {
+        "fa": "باران",
+        "en": "Rain"
+      },
+      "file": "rain.wav"
+    },
+    {
+      "id": "fire",
+      "icon": "🔥",
+      "labels": {
+        "fa": "آتش",
+        "en": "Fire"
+      },
+      "file": "fire.mp3"
+    },
+    {
+      "id": "river",
+      "icon": "🛶",
+      "labels": {
+        "fa": "رودخانه",
+        "en": "River"
+      },
+      "file": "river.mp3"
+    },
+    {
+      "id": "forest",
+      "icon": "🌲",
+      "labels": {
+        "fa": "جنگل",
+        "en": "Forest"
+      },
+      "file": "forest.mp3"
+    },
+    {
+      "id": "piano",
+      "icon": "🎹",
+      "labels": {
+        "fa": "پیانو",
+        "en": "Piano"
+      },
+      "file": "piano.mp3"
+    },
+    {
+      "id": "music",
+      "icon": "🎶",
+      "labels": {
+        "fa": "موزیک",
+        "en": "Music"
+      },
+      "file": "music.mp3"
+    },
+    {
+      "id": "violin",
+      "icon": "🎻",
+      "labels": {
+        "fa": "ساز",
+        "en": "Violin"
+      },
+      "file": "violin.mp3"
+    }
+  ]
+}
