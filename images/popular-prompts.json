@@ -1,5 +1,23 @@
 [
   {
+    "id": "polymerclay",
+    "title": "Polymer Clay Figure",
+    "prompt": "Glossy polymer clay figure, seamlessly integrated into a miniature clay room. Wearing an oversized chunky knit sweater made of clay. Illuminated by soft pastel lighting. Cheerful, wide-eyed expression.",
+    "image": "https://jibitab.ir/images/prompt/polymerclay.webp"
+  },
+  {
+    "id": "rainycity",
+    "title": "Rainy Tokyo Night",
+    "prompt": "Street-style icon during a rainy night in Tokyo. Wearing a glossy black trench coat and holding a transparent umbrella that catches the reflections of red neon signs. The streets are wet and glowing. Blurred crowds of people with umbrellas passing by. Feels mysterious and cinematic, partially lit by the colorful signs.",
+    "image": "https://jibitab.ir/images/prompt/rainycity.webp"
+  },
+  {
+    "id": "collectors-tin",
+    "title": "Collector’s Tin",
+    "prompt": "Using a rectangular collector’s tin, fill both sides with objects that are uniquely me, based only on what you know about me, and paint it with my favorite color.",
+    "image": "https://jibitab.ir/images/prompt/collectors-tin.webp"
+  },
+  {
     "id": "tennis-portrait",
     "title": "tennis-portrait",
     "prompt": "Use the main subject of this image to create a straight on angle realistic high-end editorial sports photograph of that same person as a professional tennis player. Subject as an athlete in an unmarked white tennis outfit poses at the net, relaxed and powerful. Bright midday high-flash lighting, crisp shadows, vibrant green court, deep cobalt blue sky, dozens of motion-blurred tennis balls frozen around them. Glossy magazine aesthetic, bold composition, ultra-clean photorealism, high microcontrast, polished commercial color grading.",
@@ -12,12 +30,6 @@
     "image": "https://jibitab.ir/images/prompt/clawgame.webp"
   },
   {
-    "id": "watercolor",
-    "title": "watercolor",
-    "prompt": "Vibrant impressionist watercolor painting. Wearing a sun-hat and a textured linen suit, composed of thick watercolor impressionist brushstrokes. Dappled sunlight filters through trees, capturing a relaxed and candid expression.",
-    "image": "https://jibitab.ir/images/prompt/watercolor.webp"
-  },  
-  {
     "id": "handdrawn",
     "title": "handdrawn",
     "prompt": "Character in a cozy indie video game with a hand-drawn art style. Standing in a charming small-town bakery filled with loaves of bread and sweet pastries. Wearing a cute denim apron over a striped shirt. The whole scene has a soft, pastel color palette, with little sparkles of magic floating around. Whimsical, feel-good aesthetic.",
@@ -28,12 +40,6 @@
     "title": "monstera",
     "prompt": "Inside a hyper-realistic, lush botanical conservatory. Face is partially obscured by large, vibrant Monstera leaves and hanging ferns. Lighting: dappled sunlight breaking through a glass ceiling, creating intricate shadow patterns on skin. Wearing a simple, high-quality linen shirt. Depth of field: shallow, with a soft bokeh effect on the tropical greenery in the background. Feels intimate and ethereal.",
     "image": "https://jibitab.ir/images/prompt/monstera.webp"
-  },
-  {
-    "id": "global-bobblehead",
-    "title": "global-bobblehead",
-    "prompt": "Create an e-commerce studio photograph of a cheap mass-produced plastic soccer bobblehead toy inspired by the uploaded photo only in a very loose way. Use the person’s identity and exact face as a reference, but make the face more youthful with a broad friendly smile and chunky molded plastic hair. The toy must look physically photographed, not CGI or a 3D render. Oversized bobblehead head, comically huge, about 12x the tiny body. Simplified molded vinyl face with painted eyes, painted brows, molded smile, visible paint boundaries, tiny paint misalignment, subtle mold seam lines, injection-molded plastic texture, small scuffs, soft specular highlights. Molded plastic hair with chunky sculpted grooves, not individual strands.Front-facing three-quarter product angle, looking at camera. Tiny soccer-player body in a soccer kit inspired by [COUNTRY] colors. One foot beside a black-and-white soccer ball on a circular green soccer-field display base with a red rim.Photograph on a real football stadium pitch at early evening, shallow depth of field, even softbox lighting, crisp contact shadow beneath the base, centered clean product composition. Avoid premium resin statue, anime figurine, porcelain doll, realistic skin, detailed hair strands, perfect CGI, airbrushed fantasy collectible, or hyperreal character.Avoid all logos, brands, team kits, federation crests, tournament imagery, and recognizable jersey patterns. Ask me what country and then generate the image.",
-    "image": "https://jibitab.ir/images/prompt/global-bobblehead.webp"
   },
   {
     "id": "anime-sheet",
@@ -48,18 +54,6 @@
     "image": "https://jibitab.ir/images/prompt/white-lines-sheet.webp"
   },
   {
-    "id": "mini-me-global-sheet",
-    "title": "mini me global sheet",
-    "prompt": "Turn this photo into a magical “Mini Me” world where tiny animated versions of yourself come to life around you. These cute 3D-style mini characters interact with your everyday surroundings — climbing onto your shoulders, sitting on your bag, waving, playing, and copying your poses — creating a playful yet emotional social media story-worthy scene full of personality and story. The original photo remains untouched while the tiny characters bring the image to life with depth, movement, realistic shadows, and a soft aesthetic vibe.",
-    "image": "https://jibitab.ir/images/prompt/mini-me-global-sheet.webp"
-  },
-  {
-    "id": "tarot-sheet",
-    "title": "Tarot Sheet",
-    "prompt": "Create a tarot card based off of what you know about me in the classic Rider-Waite style. Style me in a hand-drawn figure using bold but imperfect black ink linework with wobble and variation, flat colors with no shading. Layer subtle tarot visual elements around the figure. Add paper texture and print feel.",
-    "image": "https://jibitab.ir/images/prompt/tarot-sheet.webp"
-  },
-  {
     "id": "chatgpt-viral-prompt-28-360x480",
     "title": "Moody Editorial Portrait",
     "prompt": "Create a moody portrait with dramatic studio lighting. The subject should stand slightly off-center in front of a large, soft golden spotlight circle on a deep navy background. Use soft shadows and a cinematic feel. The subject must wear a plain black t-shirt, have slightly long, wavy hair, flawless fair skin, and no glasses or facial hair. Lighting should fall from the top-left, casting a clear shadow to the right. Maintain a 4:3 aspect ratio and keep the camera angle and distance consistent with classic editorial portraits.",
@@ -70,12 +64,6 @@
     "title": "Character Plush Figure",
     "prompt": "Transform the woman into a soft plush toy version that looks exactly like her with same hair, outfit and features but as a stuffed doll",
     "image": "https://jibitab.ir/images/prompt/character-plush-figure-chatgpt.png"
-  },
-  {
-    "id": "screenshot-2026-04-28-101644",
-    "title": "Funko Pop Figure",
-    "prompt": "Transform into a Funko Pop vinyl figure with massive square head, tiny body, glossy black circular eyes",
-    "image": "https://jibitab.ir/images/prompt/Screenshot 2026-04-28 101644.png"
   },
   {
     "id": "chibi-crochet-doll-chatgpt",
